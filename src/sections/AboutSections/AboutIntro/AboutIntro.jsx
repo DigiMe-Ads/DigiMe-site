@@ -290,7 +290,7 @@ export default function AboutIntro() {
           onMouseLeave={() => setVideoHovered(false)}
           style={{
             position:     'relative',
-            height:       '360px',
+            height:       '460px',
             borderRadius: '16px',
             overflow:     'hidden',
             cursor:       'pointer',
@@ -299,10 +299,11 @@ export default function AboutIntro() {
             transition:   'opacity 0.8s ease 0.25s, transform 0.8s cubic-bezier(0.16,1,0.3,1) 0.25s',
           }}
         >
-          {/* Video thumbnail image */}
-          <img
-            src="/images/About/video.jpg"
-            alt="Watch the video"
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
             style={{
               position:   'absolute',
               inset:      0,
@@ -313,11 +314,9 @@ export default function AboutIntro() {
               transition: 'transform 0.6s ease',
               transform:  videoHovered ? 'scale(1.04)' : 'scale(1)',
             }}
-            onError={e => {
-              e.currentTarget.style.display = 'none'
-              e.currentTarget.nextSibling.style.display = 'block'
-            }}
-          />
+          >
+            <source src="/images/Home/Content/portfolio.mp4" type="video/mp4" />
+          </video>
           {/* Gradient fallback */}
           <div style={{
             display:    'none',

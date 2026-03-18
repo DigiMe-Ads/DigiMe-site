@@ -146,8 +146,7 @@ export default function Projects() {
 
               {/* CTA */}
               <a
-              href='https://www.canva.com/design/DAHCUkNA5u4/fem7T6gwBUqNCAgOvnvhrQ/view?utm_content=DAHCUkNA5u4&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h01369ac5bc#1'
-              target="_blank" 
+              href='/portfolio'
               rel="noopener noreferrer"
                 style={{
                   display:      'inline-flex',
