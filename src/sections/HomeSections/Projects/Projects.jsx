@@ -163,6 +163,7 @@ export default function Projects() {
                   cursor:       'none',
                   marginBottom: '48px',
                   transition:   'background 0.25s ease, transform 0.25s ease',
+                  textDecoration  : 'none',
                 }}
                 onMouseEnter={e => {
                   e.currentTarget.style.background = '#5fff8a'

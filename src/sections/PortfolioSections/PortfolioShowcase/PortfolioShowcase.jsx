@@ -39,10 +39,10 @@ const ALL_ITEMS = [
     client:'',
     span:1,
   },
-  // ── Photography ──
+  // ── Posts ──
   {
     type:'photo',   
-    cat:'Photography',
+    cat:'Posts',
     image:'/images/Home/Content/Posts/Delivery HOG Post.jpg',
     title:'Delivery Campaign',
     client:'House of Gifts',
@@ -50,7 +50,7 @@ const ALL_ITEMS = [
   },
   {
     type:'photo',   
-    cat:'Photography',
+    cat:'Posts',
     image:'/images/Home/Content/Posts/Pickme ad uber.3.jpg',
     title:'Delivery Promotion',
     client:'House of Gifts',
@@ -58,7 +58,7 @@ const ALL_ITEMS = [
   },
   {
     type:'photo',   
-    cat:'Photography',
+    cat:'Posts',
     image:'/images/Home/Content/Posts/Post 15.jpg',
     title:'Restaurant Promo',
     client:'MAYS TABLE',
@@ -66,7 +66,7 @@ const ALL_ITEMS = [
   },
   {
     type:'photo',   
-    cat:'Photography',
+    cat:'Posts',
     image:'/images/Home/Content/Posts/Post 16.jpg',
     title:'Table Worth Discovering',
     client:'MAYS TABLE',
@@ -74,7 +74,7 @@ const ALL_ITEMS = [
   },
   {
     type:'photo',   
-    cat:'Photography',
+    cat:'Posts',
     image:'/images/Home/Content/Posts/Post 18.jpg',
     title:"Colombo's Thai Secret",
     client:'MAYS TABLE',
@@ -82,7 +82,7 @@ const ALL_ITEMS = [
   },
   {
     type:'photo',
-    cat:'Photography',
+    cat:'Posts',
     image:'/images/Home/Content/Posts/Post 27.jpg',
     title:'Evening Starts Here',
     client:'Mirissa Cafe & Bistro',
@@ -90,7 +90,7 @@ const ALL_ITEMS = [
   },
   {
     type:'photo',
-    cat:'Photography',
+    cat:'Posts',
     image:'/images/Home/Content/Posts/Post 29.jpg',
     title:'Find Us',
     client:'Mirissa Cafe & Bistro',
@@ -98,7 +98,7 @@ const ALL_ITEMS = [
   },
   {
     type:'photo',
-    cat:'Photography',
+    cat:'Posts',
     image:'/images/Home/Content/Posts/Post 36.jpg',
     title:'Slice into Happiness',
     client:"Diltano's Wood Fired Pizza & Pasta",
@@ -106,7 +106,7 @@ const ALL_ITEMS = [
   },
   {
     type:'photo',
-    cat:'Photography',
+    cat:'Posts',
     image:'/images/Home/Content/Posts/Post 60.jpg',
     title:'First Round is a Story',
     client:"Nidahas",
@@ -114,7 +114,7 @@ const ALL_ITEMS = [
   },
   {
     type:'photo',
-    cat:'Photography',
+    cat:'Posts',
     image:'/images/Home/Content/Posts/Post 61.jpg',
     title:'The Table is Waiting',
     client:"Nidahas",
@@ -122,7 +122,7 @@ const ALL_ITEMS = [
   },
   {
     type:'photo',
-    cat:'Photography',
+    cat:'Posts',
     image:'/images/Home/Content/Posts/Post 62.jpg',
     title:'Not Just a Bar',
     client:"Nidahas",
@@ -130,7 +130,7 @@ const ALL_ITEMS = [
   },
   {
     type:'photo',   
-    cat:'Photography',
+    cat:'Posts',
     image:'/images/Home/Content/Posts/Post 212.jpg',
     title:'Exclusive',
     client:"MAYS TABLE",
@@ -138,7 +138,7 @@ const ALL_ITEMS = [
   },
   {
     type:'photo',
-    cat:'Photography',
+    cat:'Posts',
     image:'/images/Home/Content/Posts/Post 233.jpg',  
     title:'Where Experiences Intersect',
     client:"THE SQUARE",
@@ -146,7 +146,7 @@ const ALL_ITEMS = [
   },
   {
     type: 'photo',
-    cat:'Photography',
+    cat:'Posts',
     image:'/images/Home/Content/Posts/Post 304.jpg',
     title:'A Design That Understand You',
     client:"Residences",
@@ -154,7 +154,7 @@ const ALL_ITEMS = [
   },
   {
     type:'photo',
-    cat:'Photography',
+    cat:'Posts',
     image:'/images/Home/Content/Posts/Post 306.jpg',
     title:'Elevate Your Everyday Moments',
     client:"Residences",
@@ -162,7 +162,7 @@ const ALL_ITEMS = [
   },
   {
     type:'photo',
-    cat:'Photography',
+    cat:'Posts',
     image:'/images/Home/Content/Posts/Post 318.jpg',
     title:'Five Star Feeling',
     client:"Residences",
@@ -183,7 +183,7 @@ const ALL_ITEMS = [
   
 ]
 
-const FILTERS = ['All', 'Reels', 'Photography', 'Web']
+const FILTERS = ['All', 'Reels', 'Posts']
 
 const STYLES = `
   @keyframes showcaseIn {
@@ -366,7 +366,7 @@ export default function PortfolioShowcase() {
             >
               {item.type === 'reel'  && <ReelCard  item={item} />}
               {item.type === 'photo' && <PhotoCard item={item} />}
-              {item.type === 'web'   && <WebCard   item={item} />}
+              {/* {item.type === 'web'   && <WebCard   item={item} />} */}
             </div>
           ))}
         </div>

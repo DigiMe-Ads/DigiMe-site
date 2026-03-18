@@ -5,7 +5,7 @@ const SERVICES = [
   {
     n:     '01',
     title: 'Social Media Management',
-    image: '/images/Services/social-media.jpg',
+    image: '/images/Home/Content/Posts/Post 15.jpg',
     tags:  [
       ['Content Creation',     'Platform Strategy'],
       ['Community Management', 'Paid Social Ads'],
@@ -27,7 +27,7 @@ const SERVICES = [
   {
     n:     '03',
     title: 'Video Production',
-    image: '/images/Services/services-mock-up.png',
+    image: '/images/Home/Content/Reels/reel.mp4',
     tags:  [
       ['Brand Films',   'Motion Graphics'],
       ['Social Content','3D Animation'],
@@ -38,7 +38,7 @@ const SERVICES = [
   {
     n:     '04',
     title: 'Search Engine Optimization (SEO)',
-    image: '/images/Services/services-mock-up.png',
+    image: '/images/Services/social-media.jpg',
     tags:  [
       ['On-Page SEO',          'Technical SEO'],
       ['Content Strategy',     'Link Building'],
@@ -96,7 +96,7 @@ const STYLES = `
 `
 
 export default function ServicesSection() {
-  const [active,       setActive]       = useState(1)   // default to Development (index 1)
+  const [active,       setActive]       = useState(0)   // default to Development (index 1)
   const [imgKey,       setImgKey]       = useState(0)   // re-triggers image animation
   const [arrowHovered, setArrowHovered] = useState(false)
   const cardReveal = useScrollReveal({ threshold: 0.08 })
@@ -313,7 +313,24 @@ export default function ServicesSection() {
                     animation:    'imgReveal 0.5s cubic-bezier(0.16,1,0.3,1) forwards',
                   }}
                 >
-                  {current.image ? (
+                  {current.n === '03' ? (
+                    // ── Video Production — looping silent video ──
+                    <video
+                      key={imgKey}           // re-mounts on switch so it restarts cleanly
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      style={{
+                        width:      '100%',
+                        height:     '100%',
+                        objectFit:  'cover',
+                        display:    'block',
+                      }}
+                    >
+                      <source src="/images/Home/Content/Reels/reel.mp4" type="video/mp4" />
+                    </video>
+                  ) : current.image ? (
                     <img
                       src={current.image}
                       alt={current.title}
@@ -344,7 +361,7 @@ export default function ServicesSection() {
                   )}
                 </div>
 
-                {/* Green arrow button — bottom right of image */}
+                {/* Green arrow button — unchanged */}
                 <button
                   onMouseEnter={() => setArrowHovered(true)}
                   onMouseLeave={() => setArrowHovered(false)}

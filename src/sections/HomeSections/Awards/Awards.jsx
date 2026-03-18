@@ -142,7 +142,7 @@ export default function Awards() {
             </p>
 
             {/* More Awards link */}
-            <a
+            {/* <a
               href="#"
               style={{
                 display:             'inline-flex',
@@ -161,7 +161,7 @@ export default function Awards() {
               onMouseLeave={e => e.currentTarget.style.color = '#ffffff'}
             >
               More Awards ↗
-            </a>
+            </a> */}
 
             {/* ── Fluid 3D object image ── */}
             {/*

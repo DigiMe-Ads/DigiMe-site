@@ -4,7 +4,7 @@ import { useScrollReveal } from '../../../hooks/useScrollReveal'
 const QUICK_LINKS = [
   { label: 'About Us',     to: '/about'     },
   { label: 'Our Team',     to: '/team'      },
-  { label: 'Careers',      to: '/careers'   },
+  { label: 'Portfolio',      to: '/portfolio'   },
   { label: 'Contact Us',   to: '/contact'   },
 ]
 

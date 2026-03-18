@@ -1,17 +1,13 @@
 import { useState, useEffect, useRef } from 'react'
 import { useScrollReveal } from '../../../hooks/useScrollReveal'
-import { Link } from "react-router-dom";
 
 const SERVICES = [
-  { title: 'Social Media Management',          icon: '📊', image: "/images/Home/digital-marketing.jpg" },
-  { title: 'Web Development & UI/UX Design',   icon: '🛡',  image: "/images/Home/web-design.jpg" },
-  { title: 'Video Production',                 icon: '📋', image: "/images/Home/creative-design.jpg" },
-  { title: 'Photography',                      icon: '🛡',  image: "/images/Home/web-design.jpg" },
-  { title: 'Search Engine Optimization',       icon: '📊', image: "/images/Home/digital-marketing.jpg" },
+  { title: 'Social Media Management',        icon: '📊', image: "/images/Home/digital-marketing.jpg" },
+  { title: 'Web Development & UI/UX Design', icon: '🛡',  image: "/images/Services/services-mock-up.png" },
+  { title: 'Video Production',               icon: '📹', image: "/images/Home/Content/Reels/reel.mp4" },
+  { title: 'Photography',                    icon: '📷', image: "/images/Home/photography.jpg" },
+  { title: 'Search Engine Optimization',     icon: '🔎', image: "/images/Home/seo.jpg" },
 ]
-
-const VISIBLE = 4
-const TOTAL_SLIDES = SERVICES.length - VISIBLE + 1  // 2 positions (0 and 1)
 
 const BREAKPOINTS = `
   @media (max-width: 1200px) {
@@ -29,30 +25,50 @@ const BREAKPOINTS = `
   }
 `
 
+const isVideo = (src) => src && /\.(mp4|webm|ogg|mov)$/i.test(src)
+
+// ── Returns how many cards to show based on window width ──
+function useVisible() {
+  const getVisible = () => {
+    if (typeof window === 'undefined') return 4
+    if (window.innerWidth < 480)  return 1
+    if (window.innerWidth < 768)  return 2
+    if (window.innerWidth < 1024) return 3
+    return 4
+  }
+  const [visible, setVisible] = useState(getVisible)
+  useEffect(() => {
+    const fn = () => setVisible(getVisible())
+    window.addEventListener('resize', fn)
+    return () => window.removeEventListener('resize', fn)
+  }, [])
+  return visible
+}
+
 export default function Services() {
-  const header = useScrollReveal({ threshold: 0.1 })
-  const cards  = useScrollReveal({ threshold: 0.05 })
+  const header  = useScrollReveal({ threshold: 0.1 })
+  const cards   = useScrollReveal({ threshold: 0.05 })
+  const visible = useVisible()
+  const totalSlides = SERVICES.length - visible + 1
+
   const [activeSlide, setActiveSlide] = useState(0)
   const intervalRef = useRef(null)
 
+  // Clamp activeSlide when visible changes (e.g. on resize)
+  useEffect(() => {
+    setActiveSlide(prev => Math.min(prev, totalSlides - 1))
+  }, [totalSlides])
+
   const startAuto = () => {
     intervalRef.current = setInterval(() => {
-      setActiveSlide(prev => (prev + 1) % TOTAL_SLIDES)
+      setActiveSlide(prev => (prev + 1) % totalSlides)
     }, 3000)
   }
-
   const stopAuto = () => clearInterval(intervalRef.current)
 
-  useEffect(() => {
-    startAuto()
-    return () => stopAuto()
-  }, [])
+  useEffect(() => { startAuto(); return () => stopAuto() }, [totalSlides])
 
-  const goTo = (i) => {
-    stopAuto()
-    setActiveSlide(i)
-    startAuto()
-  }
+  const goTo = (i) => { stopAuto(); setActiveSlide(i); startAuto() }
 
   useEffect(() => {
     if (document.getElementById('services-bp')) return
@@ -76,12 +92,10 @@ export default function Services() {
         className="services-inner"
         style={{ paddingLeft: '285px', paddingRight: '285px' }}
       >
-
         {/* Header row */}
         <div
           ref={header.ref}
-          data-reveal
-          className={`services-header ${header.isVisible ? 'is-visible' : ''}`}
+          className="services-header"
           style={{
             display:        'flex',
             justifyContent: 'space-between',
@@ -89,6 +103,9 @@ export default function Services() {
             marginBottom:   '48px',
             gap:            '40px',
             flexWrap:       'wrap',
+            opacity:        header.isVisible ? 1 : 0,
+            transform:      header.isVisible ? 'translateY(0)' : 'translateY(20px)',
+            transition:     'opacity 0.8s ease, transform 0.8s cubic-bezier(0.16,1,0.3,1)',
           }}
         >
           <div style={{ maxWidth: '480px' }}>
@@ -114,20 +131,8 @@ export default function Services() {
               color:      '#ffffff',
               margin:     0,
             }}>
-              We Provide Digital
-              <br />
+              We Provide Digital<br />
               Services{' '}
-              <span style={{
-                display:       'inline-block',
-                width:         '90px',
-                height:        '38px',
-                borderRadius:  '100px',
-                overflow:      'hidden',
-                verticalAlign: 'middle',
-                background:    '#1a2a1a',
-                border:        '1px solid rgba(255,255,255,0.1)',
-                marginRight:   '8px',
-              }} />
               <span style={{ color: '#0f911e' }}>for You</span>
             </h2>
           </div>
@@ -139,7 +144,7 @@ export default function Services() {
               color:        'rgba(255,255,255,0.45)',
               marginBottom: '20px',
             }}>
-              We provide creative digital solutions to help brands grow, engage audiences, and 
+              We provide creative digital solutions to help brands grow, engage audiences, and
               build a strong online presence.
             </p>
             <button
@@ -188,25 +193,30 @@ export default function Services() {
         </div>
 
         {/* Slider */}
-        <div style={{ overflow: 'hidden', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.07)' }}>
+        <div style={{
+          overflow:     'hidden',
+          borderRadius: '8px',
+          border:       '1px solid rgba(255,255,255,0.07)',
+        }}>
           <div
             ref={cards.ref}
-            data-stagger
-            className={cards.isVisible ? 'is-visible' : ''}
             style={{
               display:    'flex',
-              transform:  `translateX(calc(-${activeSlide} * (100% / ${VISIBLE})))`,
-              transition: 'transform 0.6s cubic-bezier(0.16,1,0.3,1)',
+              transform:  `translateX(calc(-${activeSlide} * (100% / ${visible})))`,
+              transition: 'transform 0.6s cubic-bezier(0.16,1,0.3,1), opacity 0.8s ease',
               willChange: 'transform',
+              opacity:    cards.isVisible ? 1 : 0,
             }}
           >
             {SERVICES.map((service, i) => (
               <div
                 key={i}
                 style={{
-                  flex:      `0 0 calc(100% / ${VISIBLE})`,
-                  minWidth:  `calc(100% / ${VISIBLE})`,
-                  borderRight: i === SERVICES.length - 1 ? 'none' : '1px solid rgba(255,255,255,0.07)',
+                  flex:        `0 0 calc(100% / ${visible})`,
+                  minWidth:    `calc(100% / ${visible})`,
+                  borderRight: i === SERVICES.length - 1
+                    ? 'none'
+                    : '1px solid rgba(255,255,255,0.07)',
                   boxSizing: 'border-box',
                 }}
               >
@@ -216,14 +226,14 @@ export default function Services() {
           </div>
         </div>
 
-        {/* Dot pagination — matches existing style exactly */}
+        {/* Dot pagination */}
         <div style={{
           display:        'flex',
           justifyContent: 'center',
           gap:            '8px',
           marginTop:      '28px',
         }}>
-          {Array.from({ length: TOTAL_SLIDES }).map((_, i) => (
+          {Array.from({ length: totalSlides }).map((_, i) => (
             <div
               key={i}
               onClick={() => goTo(i)}
@@ -238,7 +248,6 @@ export default function Services() {
             />
           ))}
         </div>
-
       </div>
     </section>
   )
@@ -246,6 +255,13 @@ export default function Services() {
 
 function ServiceCard({ service }) {
   const [hovered, setHovered] = useState(false)
+  const videoRef = useRef(null)
+
+  useEffect(() => {
+    const vid = videoRef.current
+    if (!vid) return
+    if (hovered) vid.play().catch(() => {})
+  }, [hovered])
 
   return (
     <div
@@ -262,7 +278,7 @@ function ServiceCard({ service }) {
         height:     '100%',
       }}
     >
-      {/* Top accent line on hover */}
+      {/* Top accent line */}
       <div style={{
         position:        'absolute',
         top:             0, left: 0, right: 0,
@@ -273,6 +289,7 @@ function ServiceCard({ service }) {
         transition:      'transform 0.4s cubic-bezier(0.16,1,0.3,1)',
       }} />
 
+      {/* Circle media */}
       <div style={{ position: 'relative', width: '160px', margin: '0 auto 32px' }}>
         <div style={{
           width:        '160px',
@@ -282,17 +299,34 @@ function ServiceCard({ service }) {
           background:   '#1a2a1a',
           border:       '1px solid rgba(255,255,255,0.08)',
         }}>
-          {service.image ? (
+          {isVideo(service.image) ? (
+            <video
+              ref={videoRef}
+              autoPlay muted loop playsInline
+              style={{ width:'100%', height:'100%', objectFit:'cover', display:'block' }}
+            >
+              <source src={service.image} type="video/mp4" />
+            </video>
+          ) : service.image ? (
             <img
               src={service.image}
               alt={service.title}
-              style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top' }}
+              style={{
+                width:'100%', height:'100%',
+                objectFit:'cover', objectPosition:'center top',
+                transform:  hovered ? 'scale(1.06)' : 'scale(1)',
+                transition: 'transform 0.5s cubic-bezier(0.16,1,0.3,1)',
+              }}
             />
           ) : (
-            <div style={{ width: '100%', height: '100%', background: 'linear-gradient(160deg, #1d2d1d 0%, #0e150e 100%)' }} />
+            <div style={{
+              width:'100%', height:'100%',
+              background:'linear-gradient(160deg, #1d2d1d 0%, #0e150e 100%)',
+            }} />
           )}
         </div>
 
+        {/* Icon badge */}
         <div style={{
           position:       'absolute',
           bottom:         '-16px',

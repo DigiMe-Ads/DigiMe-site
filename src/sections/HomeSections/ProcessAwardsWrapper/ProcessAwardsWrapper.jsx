@@ -70,7 +70,7 @@ export default function ProcessAwardsWrapper() {
       {/* Sections */}
       <div style={{ position: 'relative', zIndex: 2 }}>
         <Process />
-        <Awards />
+        {/* <Awards /> */}
       </div>
 
     </div>

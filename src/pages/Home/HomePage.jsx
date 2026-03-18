@@ -35,7 +35,7 @@ export default function HomePage() {
         {/* <CinematicShowcase /> */}
         <WhoWeAre />
         <ProcessAwardsWrapper />
-        <Testimonials />
+        {/* <Testimonials /> */}
         <ReputationWall />
         <Contact />
       </main>
