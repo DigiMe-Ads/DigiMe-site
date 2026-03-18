@@ -8,6 +8,7 @@ import PricingPage from './pages/Pricing/PricingPage'
 import TeamPage    from './pages/Team/TeamPage'
 import ContactPage from './pages/Contact-us/ContactUsPage'
 import ScrollToTop from './utils/ScrollToTop'
+import PortfolioPage from './pages/Portfolio/PortfolioPage'
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
         <Route path="/pricing"  element={<PricingPage />}  />
         <Route path="/team"     element={<TeamPage />}     />
         <Route path="/contact"  element={<ContactPage />}  />
+        <Route path="/portfolio" element={<PortfolioPage />} />
       </Routes>
     </BrowserRouter>
   )
