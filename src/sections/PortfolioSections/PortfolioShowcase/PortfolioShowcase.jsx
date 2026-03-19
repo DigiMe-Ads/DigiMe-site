@@ -134,11 +134,11 @@ export default function PortfolioShowcase() {
         <div style={{ display:'flex', alignItems:'flex-end', justifyContent:'space-between', flexWrap:'wrap', gap:'32px' }}>
           <div>
             <p style={{ display:'flex', alignItems:'center', gap:'8px', fontSize:'11px', fontWeight:600, letterSpacing:'0.22em', textTransform:'uppercase', color:'rgba(255,255,255,0.35)', marginBottom:'16px' }}>
-              <span style={{color:'#3bff6c'}}>✦</span> Selected Work
+              <span style={{color:'#0f911e'}}>✦</span> Selected Work
             </p>
             <h2 style={{ fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'clamp(2.4rem,4.5vw,5rem)', fontWeight:800, lineHeight:1.0, letterSpacing:'-0.035em', color:'#ffffff', margin:0 }}>
               Every pixel.<br/>
-              <span style={{color:'#3bff6c', fontStyle:'italic', fontWeight:400}}>Every frame.</span>
+              <span style={{color:'#0f911e', fontStyle:'italic', fontWeight:400}}>Every frame.</span>
             </h2>
           </div>
           <div style={{ display:'flex', gap:'8px', flexWrap:'wrap', alignSelf:'center' }}>
@@ -150,8 +150,8 @@ export default function PortfolioShowcase() {
                   fontFamily:"'Plus Jakarta Sans', sans-serif",
                   fontSize:'12px', fontWeight:700, letterSpacing:'0.1em', textTransform:'uppercase',
                   color: activeFilter===f ? '#060606' : 'rgba(255,255,255,0.5)',
-                  background: activeFilter===f ? '#3bff6c' : 'rgba(255,255,255,0.05)',
-                  border:`1px solid ${activeFilter===f ? '#3bff6c' : 'rgba(255,255,255,0.1)'}`,
+                  background: activeFilter===f ? '#0f911e' : 'rgba(255,255,255,0.05)',
+                  border:`1px solid ${activeFilter===f ? '#0f911e' : 'rgba(255,255,255,0.1)'}`,
                   borderRadius:'100px', padding:'10px 20px', cursor:'pointer',
                   transition:'all 0.3s cubic-bezier(0.16,1,0.3,1)',
                   animation:`filterSlide 0.4s ease ${i*0.06}s both`,
@@ -404,7 +404,7 @@ function Lightbox({ items, startIndex, onClose }) {
           <span style={{
             fontFamily:"'Plus Jakarta Sans', sans-serif",
             fontSize:'10px', fontWeight:700, letterSpacing:'0.12em', textTransform:'uppercase',
-            color: current.type === 'reel' ? '#3bff6c' : 'rgba(255,255,255,0.5)',
+            color: current.type === 'reel' ? '#0f911e' : 'rgba(255,255,255,0.5)',
             background: current.type === 'reel' ? 'rgba(59,255,108,0.1)' : 'rgba(255,255,255,0.06)',
             border:`1px solid ${current.type==='reel' ? 'rgba(59,255,108,0.25)' : 'rgba(255,255,255,0.1)'}`,
             borderRadius:'100px', padding:'5px 12px', flexShrink:0,
@@ -431,7 +431,7 @@ function Lightbox({ items, startIndex, onClose }) {
               style={{
                 width:'56px', height:'56px', flexShrink:0,
                 borderRadius:'8px', overflow:'hidden',
-                border:`2px solid ${i===index ? '#3bff6c' : 'rgba(255,255,255,0.08)'}`,
+                border:`2px solid ${i===index ? '#0f911e' : 'rgba(255,255,255,0.08)'}`,
                 opacity: i===index ? 1 : 0.45,
                 background:'#1a1a1a',
               }}
@@ -442,7 +442,7 @@ function Lightbox({ items, startIndex, onClose }) {
                   background:'#1a1a1a',
                   display:'flex', alignItems:'center', justifyContent:'center',
                 }}>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill={i===index ? '#3bff6c' : 'rgba(255,255,255,0.4)'}>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill={i===index ? '#0f911e' : 'rgba(255,255,255,0.4)'}>
                     <polygon points="5 3 19 12 5 21 5 3"/>
                   </svg>
                 </div>
@@ -569,8 +569,8 @@ function ReelCard({ item, onClick }) {
 
       {/* Playing tag */}
       <div style={{ position:'absolute', top:'12px', left:'12px', zIndex:3, display:'flex', alignItems:'center', gap:'5px', background:'rgba(0,0,0,0.6)', backdropFilter:'blur(8px)', border:'1px solid rgba(255,255,255,0.1)', borderRadius:'6px', padding:'4px 8px' }}>
-        <div style={{ width:'6px', height:'6px', borderRadius:'50%', background: playing ? '#3bff6c' : 'rgba(255,255,255,0.3)', transition:'background 0.3s ease', ...(playing ? {animation:'webBrowserBlink 1.5s ease-in-out infinite'} : {}) }}/>
-        <span style={{ fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'10px', fontWeight:700, color: playing ? '#3bff6c' : 'rgba(255,255,255,0.5)', letterSpacing:'0.1em', textTransform:'uppercase', transition:'color 0.3s ease' }}>
+        <div style={{ width:'6px', height:'6px', borderRadius:'50%', background: playing ? '#0f911e' : 'rgba(255,255,255,0.3)', transition:'background 0.3s ease', ...(playing ? {animation:'webBrowserBlink 1.5s ease-in-out infinite'} : {}) }}/>
+        <span style={{ fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'10px', fontWeight:700, color: playing ? '#0f911e' : 'rgba(255,255,255,0.5)', letterSpacing:'0.1em', textTransform:'uppercase', transition:'color 0.3s ease' }}>
           {playing ? 'Live' : 'Reel'}
         </span>
       </div>

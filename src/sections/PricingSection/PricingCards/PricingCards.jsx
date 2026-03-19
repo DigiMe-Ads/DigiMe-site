@@ -106,22 +106,94 @@ export default function PricingCards() {
         className="pricing-inner"
         style={{ paddingLeft: '285px', paddingRight: '285px' }}
       >
+
+        {/* ── Section header ── */}
+        <div style={{
+          marginBottom: '56px',
+          display:      'flex',
+          alignItems:   'flex-end',
+          justifyContent: 'space-between',
+          flexWrap:     'wrap',
+          gap:          '16px',
+        }}>
+          <div>
+            <p style={{
+              display:       'flex',
+              alignItems:    'center',
+              gap:           '8px',
+              fontSize:      '11px',
+              fontWeight:    600,
+              letterSpacing: '0.22em',
+              textTransform: 'uppercase',
+              color:         'rgba(255,255,255,0.35)',
+              marginBottom:  '14px',
+            }}>
+              <span style={{ color: '#3bff6c' }}>✦</span> Pricing
+            </p>
+            <h2 style={{
+              fontFamily:    "'Plus Jakarta Sans', sans-serif",
+              fontSize:      'clamp(2rem, 3.5vw, 3.2rem)',
+              fontWeight:    800,
+              lineHeight:    1.1,
+              letterSpacing: '-0.02em',
+              color:         '#ffffff',
+              margin:        0,
+            }}>
+              Social Media{' '}
+              <span style={{ color: '#3bff6c', fontStyle: 'italic', fontWeight: 400 }}>
+                Packages
+              </span>
+            </h2>
+          </div>
+
+          {/* Right side tag — signals more packages coming */}
+          {/* <div style={{
+            display:      'inline-flex',
+            alignItems:   'center',
+            gap:          '8px',
+            background:   'rgba(59,255,108,0.06)',
+            border:       '1px solid rgba(59,255,108,0.15)',
+            borderRadius: '100px',
+            padding:      '8px 16px',
+            alignSelf:    'center',
+          }}>
+            <div style={{
+              width:        '6px',
+              height:       '6px',
+              borderRadius: '50%',
+              background:   '#3bff6c',
+            }}/>
+            <span style={{
+              fontFamily:    "'Plus Jakarta Sans', sans-serif",
+              fontSize:      '12px',
+              fontWeight:    600,
+              color:         'rgba(59,255,108,0.8)',
+              letterSpacing: '0.06em',
+              textTransform: 'uppercase',
+            }}>
+              Web Dev packages coming soon
+            </span>
+          </div> */}
+        </div>
+
+        {/* ── Pricing grid ── */}
         <div
           ref={gridReveal.ref}
           className="pricing-grid"
           style={{
-            display:     'flex',
-            gap:         '20px',
-            alignItems:  'stretch',
-            opacity:     gridReveal.isVisible ? 1 : 0,
-            transform:   gridReveal.isVisible ? 'translateY(0)' : 'translateY(32px)',
-            transition:  'opacity 0.8s ease, transform 0.8s cubic-bezier(0.16,1,0.3,1)',
+            display:    'flex',
+            gap:        '20px',
+            alignItems: 'stretch',
+            opacity:    gridReveal.isVisible ? 1 : 0,
+            transform:  gridReveal.isVisible ? 'translateY(0)' : 'translateY(32px)',
+            transition: 'opacity 0.8s ease, transform 0.8s cubic-bezier(0.16,1,0.3,1)',
           }}
         >
           {PLANS.map((plan, i) => (
             <PricingCard key={plan.name} plan={plan} index={i} delay={i * 80} />
           ))}
         </div>
+
       </div>
     </section>
   )

@@ -198,7 +198,7 @@ export default function ContentWall() {
               fontFamily:"'Plus Jakarta Sans', sans-serif",
               fontSize: item==='●'||item==='✦' ? '8px' : '11px',
               fontWeight:600,
-              color: item==='✦' ? '#3bff6c'
+              color: item==='✦' ? '#0f911e'
                    : item==='●' ? 'rgba(255,255,255,0.2)'
                    : 'rgba(255,255,255,0.4)',
               letterSpacing:'0.12em', textTransform:'uppercase',
@@ -214,13 +214,13 @@ export default function ContentWall() {
           borderRadius:'100px', border:'1px solid rgba(59,255,108,0.2)',
         }}>
           <div style={{
-            width:'6px', height:'6px', borderRadius:'50%', background:'#3bff6c',
+            width:'6px', height:'6px', borderRadius:'50%', background:'#0f911e',
             animation:'livePulse 1.8s ease-in-out infinite',
           }}/>
           <span style={{
             fontFamily:"'Plus Jakarta Sans', sans-serif",
             fontSize:'10px', fontWeight:700,
-            color:'#3bff6c', letterSpacing:'0.15em', textTransform:'uppercase',
+            color:'#0f911e', letterSpacing:'0.15em', textTransform:'uppercase',
           }}>Live feed</span>
         </div>
       </div>
@@ -249,7 +249,7 @@ export default function ContentWall() {
               textTransform:'uppercase', color:'rgba(255,255,255,0.35)',
               marginBottom:'16px',
             }}>
-              <span style={{color:'#3bff6c'}}>✦</span> Our Work
+              <span style={{color:'#0f911e'}}>✦</span> Our Work
             </p>
             <h2 style={{
               fontFamily:"'Plus Jakarta Sans', sans-serif",
@@ -259,7 +259,7 @@ export default function ContentWall() {
             }}>
               The work<br/>
               speaks{' '}
-              <span style={{color:'#3bff6c', fontStyle:'italic', fontWeight:400}}>
+              <span style={{color:'#0f911e', fontStyle:'italic', fontWeight:400}}>
                 for itself.
               </span>
             </h2>
@@ -277,7 +277,7 @@ export default function ContentWall() {
                 fontFamily:"'Plus Jakarta Sans', sans-serif",
                 fontSize:'11px', fontWeight:600,
                 letterSpacing:'0.1em', textTransform:'uppercase',
-                color:      p.active ? '#3bff6c' : 'rgba(255,255,255,0.4)',
+                color:      p.active ? '#0f911e' : 'rgba(255,255,255,0.4)',
                 background: p.active ? 'rgba(59,255,108,0.1)' : 'rgba(255,255,255,0.04)',
                 border:`1px solid ${p.active ? 'rgba(59,255,108,0.25)' : 'rgba(255,255,255,0.08)'}`,
                 borderRadius:'100px', padding:'6px 14px',
@@ -428,13 +428,13 @@ function ReelCard({ card }) {
         display:'flex', alignItems:'center', gap:'5px',
       }}>
         <svg width="9" height="9" viewBox="0 0 24 24"
-          fill={playing ? '#3bff6c' : 'rgba(255,255,255,0.5)'}>
+          fill={playing ? '#0f911e' : 'rgba(255,255,255,0.5)'}>
           <polygon points="5 3 19 12 5 21 5 3"/>
         </svg>
         <span style={{
           fontFamily:"'Plus Jakarta Sans', sans-serif",
           fontSize:'10px', fontWeight:700,
-          color: playing ? '#3bff6c' : 'rgba(255,255,255,0.6)',
+          color: playing ? '#0f911e' : 'rgba(255,255,255,0.6)',
           letterSpacing:'0.1em', textTransform:'uppercase',
         }}>{playing ? 'Playing' : 'Reel'}</span>
       </div>
@@ -561,7 +561,7 @@ function StatCard({ card }) {
       <div style={{
         fontFamily:"'Plus Jakarta Sans', sans-serif",
         fontSize:'clamp(2.2rem,3.5vw,3rem)',
-        fontWeight:900, color:'#3bff6c',
+        fontWeight:900, color:'#0f911e',
         letterSpacing:'-0.04em', lineHeight:1, marginBottom:'8px',
       }}>{card.value}</div>
       <div style={{

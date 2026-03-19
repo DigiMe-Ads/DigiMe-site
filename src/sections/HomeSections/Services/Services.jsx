@@ -2,10 +2,10 @@ import { useState, useEffect, useRef } from 'react'
 import { useScrollReveal } from '../../../hooks/useScrollReveal'
 
 const SERVICES = [
-  { title: 'Social Media Management',        icon: '📊', image: "/images/Home/digital-marketing.jpg" },
-  { title: 'Web Development & UI/UX Design', icon: '🛡',  image: "/images/Services/services-mock-up.png" },
-  { title: 'Video Production',               icon: '📹', image: "/images/Home/Content/Reels/reel.mp4" },
-  { title: 'Photography',                    icon: '📷', image: "/images/Home/photography.jpg" },
+  { title: 'Social Media Management',        icon: '📊', image: "/images/Home/social-media.jpg" },
+  { title: 'Web Development & UI/UX Design', icon: '🛡',  image: "/images/Home/web-dev2.png" },
+  { title: 'Video Production',               icon: '📹', image: "/images/Home/videography.jpg" },
+  { title: 'Photography',                    icon: '📷', image: "/images/Home/photography2.jpg" },
   { title: 'Search Engine Optimization',     icon: '🔎', image: "/images/Home/seo.jpg" },
 ]
 

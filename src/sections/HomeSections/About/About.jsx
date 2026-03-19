@@ -5,12 +5,12 @@ const MISSIONS = [
   {
     icon:  '🚀',
     title: 'Company Mission',
-    body:  'Our mission is to empower businesses with cutting-edge digital solutions.',
+    body:  'To provide clients with measurable results, WOW factor, and a one-of-a-kind service. ',
   },
   {
     icon:  '🎯',
     title: 'Company Vision & Goals',
-    body:  'We are dedicated to crafting digital experiences that seamlessly connect.',
+    body:  'To be one of the top ten providers of digital solutions in Sri Lanka. ',
   },
 ]
 

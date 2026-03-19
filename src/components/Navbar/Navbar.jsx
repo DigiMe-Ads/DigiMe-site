@@ -372,8 +372,8 @@ export default function Navbar() {
                   We create digital experiences that beautifully unite creativity and innovation.
                 </p>
                 {[
-                  { label: 'Email', value: 'needhelp@company.com' },
-                  { label: 'Phone', value: '(+123) 456789 00' },
+                  { label: 'Email', value: 'info@digimeads.com ' },
+                  { label: 'Phone', value: '(+94) 77 744 4956' },
                 ].map(item => (
                   <div key={item.label} style={{ marginBottom: '16px' }}>
                     <p style={{
@@ -392,7 +392,7 @@ export default function Navbar() {
               </div>
 
               <div>
-                <p style={{
+                {/* <p style={{
                   fontFamily: "'Plus Jakarta Sans', sans-serif",
                   fontSize: '10px', fontWeight: 600,
                   letterSpacing: '0.2em', textTransform: 'uppercase',
@@ -421,8 +421,9 @@ export default function Navbar() {
                       }}
                     >{s}</button>
                   ))}
-                </div>
-                <Link to="/contact" onClick={handleClose} style={{
+                </div> */}
+                <Link to="/contact" onClick={handleClose} 
+                style={{
                   display: 'inline-flex', alignItems: 'center', gap: '8px',
                   background: '#0f911e', color: '#0a0a0a',
                   fontFamily: "'Plus Jakarta Sans', sans-serif",
@@ -454,13 +455,14 @@ export default function Navbar() {
               <p style={{
                 fontFamily: "'Plus Jakarta Sans', sans-serif",
                 fontSize: '12px', color: 'rgba(255,255,255,0.35)', margin: '0 0 2px',
-              }}>needhelp@company.com</p>
+              }}>info@digimeads.com </p>
               <p style={{
                 fontFamily: "'Plus Jakarta Sans', sans-serif",
                 fontSize: '12px', color: 'rgba(255,255,255,0.35)', margin: 0,
-              }}>(+123) 456789 00</p>
+              }}>(+94) 77 744 4956</p>
             </div>
-            <Link
+            <a
+              href="tel:+94777444956"
               to="/contact"
               onClick={handleClose}
               style={{
@@ -474,7 +476,7 @@ export default function Navbar() {
               }}
             >
               Let's Talk ↗
-            </Link>
+            </a>
           </div>
 
           {/* Watermark */}

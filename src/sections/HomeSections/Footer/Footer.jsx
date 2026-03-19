@@ -17,12 +17,12 @@ const OUR_SOLUTIONS = [
   'Google Ads',
 ]
 
-const STAY_WITH_US = [
-  { label: 'Behance',  url: 'https://www.behance.net/'  },
-  { label: 'Upwork',   url: 'https://www.upwork.com/'   },
-  { label: 'Dribbble', url: 'https://dribbble.com/'     },
-  { label: 'Fiverr',   url: 'https://www.fiverr.com/'   },
-]
+// const STAY_WITH_US = [
+//   { label: 'Behance',  url: 'https://www.behance.net/'  },
+//   { label: 'Upwork',   url: 'https://www.upwork.com/'   },
+//   { label: 'Dribbble', url: 'https://dribbble.com/'     },
+//   { label: 'Fiverr',   url: 'https://www.fiverr.com/'   },
+// ]
 
 const SOCIALS = [
   // Twitter/X
@@ -344,7 +344,7 @@ export default function Footer() {
             </div>
 
             {/* Stay with us — external URLs, open in new tab */}
-            <div className="footer-col" style={{ minWidth: '140px' }}>
+            {/* <div className="footer-col" style={{ minWidth: '140px' }}>
               <h5 style={{
                 fontFamily:   "'Plus Jakarta Sans', sans-serif",
                 fontSize:     '14px',
@@ -365,7 +365,7 @@ export default function Footer() {
                   {label}
                 </a>
               ))}
-            </div>
+            </div> */}
 
             {/* 3D blob — bottom right corner */}
             <div style={{ position: 'relative', width: '120px', flexShrink: 0, alignSelf: 'flex-end' }}>

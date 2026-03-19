@@ -223,7 +223,7 @@ export default function Contact() {
                 info@digimeads.com
               </p>
               <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 'clamp(1.4rem, 2vw, 1.8rem)', fontWeight: 700, color: '#ffffff', margin: 0, letterSpacing: '-0.02em' }}>
-                (+94) 77 1813 729
+                (+94) 77 744 4956
               </p>
             </div>
           </div>

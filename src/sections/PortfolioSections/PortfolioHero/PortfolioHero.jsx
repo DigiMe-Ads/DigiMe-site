@@ -166,7 +166,7 @@ export default function PortfolioHero() {
         }}>
           <div style={{
             transform:'rotate(-4deg)',
-            background:'#3bff6c', color:'#060606',
+            background:'#0f911e', color:'#060606',
             fontFamily:"'Plus Jakarta Sans', sans-serif",
             fontSize:'11px', fontWeight:800,
             letterSpacing:'0.15em', textTransform:'uppercase',
@@ -186,7 +186,7 @@ export default function PortfolioHero() {
             color:'rgba(255,255,255,0.4)', marginBottom:'20px',
             animation:'heroTextIn 0.8s cubic-bezier(0.16,1,0.3,1) 0.2s both',
           }}>
-            <span style={{color:'#3bff6c'}}>✦</span> &nbsp;DigiMeAds · Portfolio
+            <span style={{color:'#0f911e'}}>✦</span> &nbsp;DigiMeAds · Portfolio
           </p>
         </div>
 
@@ -201,7 +201,7 @@ export default function PortfolioHero() {
             <span key={i} style={{
               display:'block',
               animation:`heroTextIn 0.8s cubic-bezier(0.16,1,0.3,1) ${0.3+i*0.1}s both`,
-              color: i===2 ? '#3bff6c' : '#ffffff',
+              color: i===2 ? '#0f911e' : '#ffffff',
               fontStyle: i===2 ? 'italic' : 'normal',
               fontWeight: i===2 ? 400 : 900,
             }}>{line}</span>
@@ -211,7 +211,7 @@ export default function PortfolioHero() {
         {/* Accent line */}
         <div style={{
           width:'200px', height:'2px', marginBottom:'40px',
-          background:'linear-gradient(90deg, #3bff6c, transparent)',
+          background:'linear-gradient(90deg, #0f911e, transparent)',
           transformOrigin:'left',
           animation:'heroLineIn 0.9s cubic-bezier(0.16,1,0.3,1) 0.7s both',
         }}/>
@@ -231,15 +231,15 @@ export default function PortfolioHero() {
               onClick={togglePlay}
               style={{
                 width:'64px', height:'64px', borderRadius:'50%',
-                background: playing ? 'rgba(59,255,108,0.15)' : '#3bff6c',
-                border:`2px solid ${playing ? 'rgba(59,255,108,0.4)' : '#3bff6c'}`,
+                background: playing ? 'rgba(59,255,108,0.15)' : '#0f911e',
+                border:`2px solid ${playing ? 'rgba(59,255,108,0.4)' : '#0f911e'}`,
                 display:'flex', alignItems:'center', justifyContent:'center',
                 cursor:'pointer', flexShrink:0,
               }}
             >
               {playing ? (
                 <svg width="18" height="18" viewBox="0 0 24 24"
-                  fill={playing ? '#3bff6c' : '#060606'}>
+                  fill={playing ? '#0f911e' : '#060606'}>
                   <rect x="6" y="4" width="4" height="16" rx="1"/>
                   <rect x="14" y="4" width="4" height="16" rx="1"/>
                 </svg>
@@ -326,7 +326,7 @@ export default function PortfolioHero() {
         >
           <div style={{
             height:'100%', width:`${progress}%`,
-            background:'#3bff6c',
+            background:'#0f911e',
             transition:'width 0.1s linear',
             position:'relative',
           }}>
@@ -335,7 +335,7 @@ export default function PortfolioHero() {
               position:'absolute', right:'-5px', top:'50%',
               transform:'translateY(-50%)',
               width:'10px', height:'10px', borderRadius:'50%',
-              background:'#3bff6c',
+              background:'#0f911e',
               animation: playing ? 'heroScrubberPulse 2s ease-in-out infinite' : 'none',
             }}/>
           </div>
