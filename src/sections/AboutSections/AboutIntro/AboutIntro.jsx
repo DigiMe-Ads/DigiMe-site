@@ -5,18 +5,18 @@ import { useScrollReveal } from '../../../hooks/useScrollReveal'
 // ── Features config — add icon image paths when ready ──
 const FEATURES = [
   {
-    title: 'Established for',
-    body:  'Designed from day one to scale with you whether you are launching an MVP or expanding fast.',
+    title: 'Data-Driven Strategy',
+    body:  'We develop tailored strategies based on each client\'s specific needs — powered by real data, not guesswork.',
     icon:  '/images/About/established.png',   
   },
   {
-    title: 'Ingenuity',
-    body:  'We solve complex problems with elegant solutions — no templates, no shortcuts.',
+    title: 'Creative Expertise',
+    body:  'Our team of directors, marketers, designers, and developers brings the full picture to every campaign.',
     icon:  '/images/About/inginuity.png',   
   },
   {
-    title: 'Low-cost',
-    body:  'Transparent, flexible pricing that scales with your project, not against your budget.',
+    title: 'Real Results',
+    body:  'We focus on what actually matters — leads, engagement, and revenue streams that drive sustainable growth.',
     icon:  '/images/About/low-cost.png',   
   },
 ]
@@ -80,13 +80,12 @@ export default function AboutIntro() {
     const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100)
     camera.position.set(0, 0, 5)
 
-    // Dodecahedron — 12 pentagonal faces, matches screenshot shape
     const geo  = new THREE.DodecahedronGeometry(1.6, 0)
     const mat  = new THREE.MeshBasicMaterial({
       color:       0xffffff,
       wireframe:   true,
       transparent: true,
-      opacity:     0.07,   // very faint — doesn't overpower
+      opacity:     0.07,
     })
     const mesh = new THREE.Mesh(geo, mat)
     scene.add(mesh)
@@ -205,7 +204,7 @@ export default function AboutIntro() {
               marginBottom:  '20px',
             }}>
               <span style={{ color: '#0f911e', fontSize: '10px' }}>✦</span>
-              Who We Are
+              About DigiMeAds
             </p>
 
             {/* Heading */}
@@ -218,8 +217,8 @@ export default function AboutIntro() {
               margin:       0,
               letterSpacing:'-0.01em',
             }}>
-              We are dedicated to creating high-tech web experiences that beautifully unite{' '}
-              <span style={{ color: '#0f911e' }}>creativity and innovation</span>
+              Data-driven solutions built around{' '}
+              <span style={{ color: '#0f911e' }}>your specific needs</span>
             </h2>
           </div>
 
@@ -229,7 +228,7 @@ export default function AboutIntro() {
             ref={bodyReveal.ref}
             style={{
               flex:       1,
-              paddingTop: '52px',   // aligns roughly with heading start
+              paddingTop: '52px',
               opacity:    bodyReveal.isVisible ? 1 : 0,
               transform:  bodyReveal.isVisible ? 'translateY(0)' : 'translateY(24px)',
               transition: 'opacity 0.8s ease 0.1s, transform 0.8s cubic-bezier(0.16,1,0.3,1) 0.1s',
@@ -242,10 +241,11 @@ export default function AboutIntro() {
               color:      'rgba(255,255,255,0.45)',
               margin:     0,
             }}>
-              We partner with ambitious brands to design and build digital products that perform as 
-              beautifully as they look. From concept to launch, our team brings together deep 
-              technical expertise and sharp creative thinking — delivering experiences users 
-              actually remember.
+              DigiMe Ads (PVT) LTD provides data-driven digital marketing solutions, developing 
+              tailored strategies based on each client's specific needs. Our team consists of 
+              creative directors, strategic marketers, experienced designers, and developers who 
+              understand what it takes to achieve real results online. We firmly believe that the 
+              success of our clients is the strongest measure of our own performance.
             </p>
           </div>
         </div>
@@ -272,9 +272,6 @@ export default function AboutIntro() {
 
       </div>
 
-      
-
-      {/* Load Dancing Script for the handwriting look */}
       <link
         rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap"
@@ -286,7 +283,6 @@ export default function AboutIntro() {
 function FeatureCell({ feat, index, last }) {
   const [hovered, setHovered] = useState(false)
 
-  // Fallback SVG icons
   const ICONS = [
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
       <circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 0 1 4-4h4"/><circle cx="17" cy="17" r="4"/><path d="M13 17h8"/>

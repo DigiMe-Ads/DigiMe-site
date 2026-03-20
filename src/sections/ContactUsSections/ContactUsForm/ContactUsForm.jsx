@@ -376,8 +376,10 @@ export default function ContactPage() {
               margin:     '0 0 40px',
               maxWidth:   '44ch',
             }}>
-              Have a project in mind or just want to explore what's possible? We'd love to hear 
-              from you. Drop us a message and we'll get back to you within 24 hours.
+              We are in business for the long haul because we believe in building strong relationships. We are always thrilled when our partners experience success through working with us.
+              <br/>
+              Let’s connect and explore how DigiMeAds can support your digital growth journey.
+
             </p>
 
             {/* Contact info cards */}
