@@ -4,12 +4,13 @@ import { useScrollReveal } from '../../../hooks/useScrollReveal'
 const CONTACT_INFO = [
   {
     icon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.28 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.58a16 16 0 0 0 6 6l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16z"/>
-      </svg>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+    <line x1="12" y1="18" x2="12.01" y2="18"/>
+  </svg>
     ),
     title: 'Have any question?',
-    value: 'Free (+94) 77 1813 729​ ',
+    value: 'Free (+94) 777 444 956​ ',
   },
   {
     icon: (
@@ -18,7 +19,7 @@ const CONTACT_INFO = [
         <polyline points="22,6 12,13 2,6"/>
       </svg>
     ),
-    title: 'Write email',
+    title: 'Write to us',
     value: 'info@digimeads.com ',
   },
   {
@@ -29,7 +30,7 @@ const CONTACT_INFO = [
       </svg>
     ),
     title: 'Visit anytime',
-    value: '410/3 Bauddhaloka Mawatha, Colombo 07 ',
+    value: '410/3, Bauddhaloka Mawatha, Colombo 07 ',
   },
 ]
 
@@ -59,7 +60,7 @@ const STYLES = `
 `
 
 // ─── PASTE YOUR WEB3FORMS ACCESS KEY HERE ───────────────────────────────────
-const WEB3FORMS_ACCESS_KEY = '85a78adc-9d09-4121-ab2f-8191735957c4'
+const WEB3FORMS_ACCESS_KEY = 'b24110b3-93db-4a6c-bbeb-f85e68928d05'
 // ────────────────────────────────────────────────────────────────────────────
 
 export default function ContactPage() {
@@ -376,7 +377,7 @@ export default function ContactPage() {
               margin:     '0 0 40px',
               maxWidth:   '44ch',
             }}>
-              We are in business for the long haul because we believe in building strong relationships. We are always thrilled when our partners experience success through working with us.
+              We are in business for the long haul because we believe in building strong relationships.
               <br/>
               Let’s connect and explore how DigiMeAds can support your digital growth journey.
 

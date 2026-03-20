@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom'
 
 const MISSIONS = [
   {
+    icon:  '🎯',
+    title: 'Company Vision',
+    body:  'To be one of the top ten providers of digital solutions in Sri Lanka. ',
+  },
+  {
     icon:  '🚀',
     title: 'Company Mission',
     body:  'To provide clients with measurable results, WOW factor, and a one-of-a-kind service. ',
-  },
-  {
-    icon:  '🎯',
-    title: 'Company Vision & Goals',
-    body:  'To be one of the top ten providers of digital solutions in Sri Lanka. ',
   },
 ]
 
@@ -110,24 +110,23 @@ export default function About() {
               marginBottom:  '16px',
             }}
           >
-            <span style={{ color: '', fontSize: '10px' }}>✦</span>
+            <span style={{ color: '#0f911e', fontSize: '10px' }}>✦</span>
             Our Strategy
           </p>
 
           <h2
             style={{
               fontFamily:   "'Plus Jakarta Sans', sans-serif",
-              fontSize:     'clamp(1.6rem, 2.8vw, 2.6rem)',
+              fontSize:     'clamp(1.6rem, 2.8vw, 2.3rem)',
               fontWeight:   600,
               lineHeight:   1.2,
               color:        '#ffffff',
               marginBottom: '16px',
             }}
           >
-            Redefining the World for{' '}
-            <span style={{ color: '#0f911e' }}>a</span>
+            Turning <span style={{ color: '#0f911e' }}>Today’s Ideas</span> into {' '}
             <br />
-            <span style={{ color: '#0f911e' }}>Better Tomorrow</span>
+            <span style={{ color: '#0f911e' }}>Tomorrow’s Growth</span>
           </h2>
 
           <p
@@ -136,13 +135,20 @@ export default function About() {
               lineHeight:   '22px',
               color:        'rgba(255,255,255,0.45)',
               marginBottom: '32px',
-              maxWidth:     '46ch',
+              maxWidth:     '50ch',
             }}
           >
-            Our work process begins with in-depth research to understand the current brand position. 
-            We then align these insights with business goals to attract strong leads. Next, we create 
-            targeted content to reach the right audience. Finally, we measure performance, evaluate 
-            results, and follow up with clients to optimize campaign outcomes.
+            We start by digging deep into your brand, understanding where you stand, what’s working, 
+            and where the real opportunities lie.
+
+            Next, we connect the dots between insights and your business goals, building a strategy 
+            designed to attract the right audience and drive meaningful results.
+
+            Then comes the fun part, we bring the strategy to life through content and campaigns 
+            that cut through the noise and get your brand noticed.
+
+            And we don’t stop there. We track, measure, and fine-tune everything, working alongside 
+            you to continuously improve performance and maximize results.
           </p>
 
           {/* Mission / Vision */}
@@ -198,7 +204,7 @@ export default function About() {
             onMouseEnter={e => e.currentTarget.style.color = '#0f911e'}
             onMouseLeave={e => e.currentTarget.style.color = '#ffffff'}
           >
-            Contact With Us <span>↗</span>
+            Contact us <span>↗</span>
           </Link>
         </div>
 

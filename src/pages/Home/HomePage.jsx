@@ -33,8 +33,8 @@ export default function HomePage() {
         {/* <Stats /> */}
         <Projects />
         {/* <CinematicShowcase /> */}
-        <WhoWeAre />
-        <ProcessAwardsWrapper />
+        {/* <WhoWeAre/> */}
+        {/* <ProcessAwardsWrapper />  */}
         {/* <Testimonials /> */}
         <ReputationWall />
         <Contact />

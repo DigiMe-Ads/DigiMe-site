@@ -3,10 +3,10 @@ import { useScrollReveal } from '../../../hooks/useScrollReveal'
 
 const SERVICES = [
   { title: 'Social Media Management',        icon: '📊', image: "/images/Home/social-media.jpg" },
-  { title: 'Web Development & UI/UX Design', icon: '🛡',  image: "/images/Home/web-dev2.png" },
+  { title: 'Web Development & UI/UX Design', icon: '🛡',  image: "/images/Home/ui2.jpeg" },
+  { title: 'Search Engine Optimization',     icon: '🔎', image: "/images/Home/seo.jpg" },
   { title: 'Video Production',               icon: '📹', image: "/images/Home/videography.jpg" },
   { title: 'Photography',                    icon: '📷', image: "/images/Home/photography2.jpg" },
-  { title: 'Search Engine Optimization',     icon: '🔎', image: "/images/Home/seo.jpg" },
 ]
 
 const BREAKPOINTS = `
@@ -131,8 +131,8 @@ export default function Services() {
               color:      '#ffffff',
               margin:     0,
             }}>
-              We Provide Digital<br />
-              Services{' '}
+              Digital Solutions<br />
+              Built{' '}
               <span style={{ color: '#0f911e' }}>for You</span>
             </h2>
           </div>

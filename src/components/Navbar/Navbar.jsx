@@ -6,7 +6,7 @@ const LINKS = [
   { label: 'About Us',   path: '/about'    },
   { label: 'Services',   path: '/services' },
   { label: 'Pricing',    path: '/pricing'  },
-  { label: 'Team',       path: '/team'     },
+  // { label: 'Team',       path: '/team'     },
   { label: 'Contact Us', path: '/contact'  },
 ]
 
@@ -373,7 +373,7 @@ export default function Navbar() {
                 </p>
                 {[
                   { label: 'Email', value: 'info@digimeads.com ' },
-                  { label: 'Phone', value: '(+94) 77 744 4956' },
+                  { label: 'Phone', value: '(+94) 777 444 956' },
                 ].map(item => (
                   <div key={item.label} style={{ marginBottom: '16px' }}>
                     <p style={{
@@ -459,7 +459,7 @@ export default function Navbar() {
               <p style={{
                 fontFamily: "'Plus Jakarta Sans', sans-serif",
                 fontSize: '12px', color: 'rgba(255,255,255,0.35)', margin: 0,
-              }}>(+94) 77 744 4956</p>
+              }}>(+94) 777 444 956</p>
             </div>
             <a
               href="tel:+94777444956"

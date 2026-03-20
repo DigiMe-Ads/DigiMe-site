@@ -5,13 +5,13 @@ const FEATURES = [
   {
     title:    'Brand Identity',
     subtitle: '2D & 3D Animation',
-    body:     'We craft visual identities that stick — logos, motion graphics, and animations that bring your brand to life across every screen.',
+    body:     'We craft visual identities that stick logos, motion graphics, and animations that bring your brand to life across every screen.',
     image:    '/images/About/features/brand-identity.png',  
   },
   {
     title:    'Web Design',
     subtitle: 'Art Direction',
-    body:     'Pixel-perfect designs with purpose. We build websites that don not just look stunning — they guide your visitors toward action.',
+    body:     'Pixel-perfect designs with purpose. We build websites that don not just look stunning they guide your visitors toward action.',
     image:    '/images/About/features/web-design.png',  
   },
   {
@@ -66,7 +66,7 @@ export default function OurFeatures() {
         background: '#0a0a0a',
         overflow:   'hidden',
         fontFamily: "'Plus Jakarta Sans', sans-serif",
-        paddingBottom: '80px',
+        paddingBottom: '0px',
       }}
     >
 
@@ -78,7 +78,7 @@ export default function OurFeatures() {
           paddingLeft:  '285px',
           paddingRight: '0',           // title bleeds to right edge
           paddingTop:   '60px',
-          paddingBottom:'8px',
+          paddingBottom:'0px',
           position:     'relative',
           overflow:     'visible',
           opacity:      titleReveal.isVisible ? 1 : 0,
@@ -107,13 +107,13 @@ export default function OurFeatures() {
           </span>
           {/* FEATURES — solid green */}
           <span style={{ color: '#0f911e' }}>
-            FEATURES
+            TEAM
           </span>
         </h2>
       </div>
 
       {/* ── Feature cards grid ── */}
-      <div
+      {/* <div
         ref={gridReveal.ref}
         className="feat-inner feat-grid"
         style={{
@@ -131,7 +131,7 @@ export default function OurFeatures() {
         {FEATURES.map((feat, i) => (
           <FeatureCard key={feat.title} feat={feat} index={i} />
         ))}
-      </div>
+      </div> */}
 
     </section>
   )

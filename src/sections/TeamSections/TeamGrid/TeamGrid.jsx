@@ -11,23 +11,27 @@ const TEAM = [
   { name: 'Chanka Herath',       role: 'Web Developer',                     image: '/images/Team/Chanka.png',      tier: 3 },
 ]
 
-// viewBox: 0 0 900 660
+const CX = 450
+const CY = 330
+
 const NODES = [
-  { ...TEAM[0], x: 225, y: 120 },  // Andrew      — tier 1 left
-  { ...TEAM[1], x: 675, y: 120 },  // Romario     — tier 1 right
-  { ...TEAM[2], x: 450, y: 280 },  // Nalaka      — tier 2 centre
-  { ...TEAM[3], x: 130, y: 490 },  // Lakmal      — tier 3
-  { ...TEAM[4], x: 310, y: 570 },  // Thulakshan  — tier 3
-  { ...TEAM[5], x: 590, y: 570 },  // Sachira     — tier 3
-  { ...TEAM[6], x: 770, y: 490 },  // Chanka      — tier 3
+  // Directors — increase separation
+{ ...TEAM[0], x: CX - 100, y: CY },
+{ ...TEAM[1], x: CX + 100, y: CY },
+
+// Outer ring — increase radius from 220 → 260
+{ ...TEAM[2], x: CX + 260 * Math.cos(-90  * Math.PI/180), y: CY + 260 * Math.sin(-90  * Math.PI/180) },
+{ ...TEAM[3], x: CX + 260 * Math.cos(-18  * Math.PI/180), y: CY + 260 * Math.sin(-18  * Math.PI/180) },
+{ ...TEAM[4], x: CX + 260 * Math.cos(54   * Math.PI/180), y: CY + 260 * Math.sin(54   * Math.PI/180) },
+{ ...TEAM[5], x: CX + 260 * Math.cos(126  * Math.PI/180), y: CY + 260 * Math.sin(126  * Math.PI/180) },
+{ ...TEAM[6], x: CX + 260 * Math.cos(198  * Math.PI/180), y: CY + 260 * Math.sin(198  * Math.PI/180) },
 ]
 
 const EDGES = [
-  [0, 1], [0, 2], [1, 2],
-  [2, 3], [2, 4], [2, 5], [2, 6],
-  [0, 3], [0, 4],
-  [1, 5], [1, 6],
-  [3, 4], [4, 5], [5, 6],
+  [0, 1],             // directors to each other
+  [0, 2], [0, 3], [0, 4], [0, 5], [0, 6], // Andrew to all outer
+  [1, 2], [1, 3], [1, 4], [1, 5], [1, 6], // Romario to all outer
+  [2, 3], [3, 4], [4, 5], [5, 6], [6, 2], // outer ring perimeter
 ]
 
 const TIER_RADIUS = { 1: 58, 2: 46, 3: 37 }
@@ -35,8 +39,8 @@ const TIER_COLOR  = { 1: '#0f911e', 2: '#3bff6c', 3: 'rgba(59,255,108,0.45)' }
 const TIER_STROKE = { 1: 3.5, 2: 2.5, 3: 1.5 }
 
 // Web center point (visual anchor of the whole web)
-const WEB_CX = 450
-const WEB_CY = 330
+const WEB_CX = CX
+const WEB_CY = CY
 
 // Concentric web ring polygons — approximate the radii with 8-sided polygons
 // Each ring is defined by its polygon points
@@ -180,7 +184,7 @@ export default function TeamGrid() {
       style={{
         background:    '#060608',
         fontFamily:    "'Plus Jakarta Sans', sans-serif",
-        paddingTop:    '80px',
+        paddingTop:    '20px',
         paddingBottom: '120px',
         overflow:      'hidden',
         position:      'relative',
@@ -208,15 +212,15 @@ export default function TeamGrid() {
             transition:   'opacity 0.8s ease, transform 0.8s cubic-bezier(0.16,1,0.3,1)',
           }}
         >
-          <p style={{
+          {/* <p style={{
             display: 'inline-flex', alignItems: 'center', gap: '8px',
             fontSize: '11px', fontWeight: 600, letterSpacing: '0.22em',
             textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)',
             marginBottom: '14px',
           }}>
             <span style={{ color: '#3bff6c' }}>✦</span> The Team
-          </p>
-          <h2 style={{
+          </p> */}
+          {/* <h2 style={{
             fontFamily:    "'Plus Jakarta Sans', sans-serif",
             fontSize:      'clamp(2rem,3.5vw,3.2rem)',
             fontWeight:    800,
@@ -229,7 +233,7 @@ export default function TeamGrid() {
             <span style={{ color: '#3bff6c', fontStyle: 'italic', fontWeight: 400 }}>
               the brand.
             </span>
-          </h2>
+          </h2> */}
         </div>
 
         {/* ── Desktop spider web ── */}
@@ -243,7 +247,7 @@ export default function TeamGrid() {
           }}
         >
           <svg
-            viewBox="0 0 900 660"
+            viewBox="0 0 900 650"
             preserveAspectRatio="xMidYMid meet"
             style={{ width: '100%', height: 'auto', overflow: 'visible', display: 'block' }}
           >
@@ -344,7 +348,13 @@ export default function TeamGrid() {
                 WEB LAYER 2: Radial spokes from center to nodes
             ══════════════════════════════════════ */}
             {NODES.map((node, i) => {
-              const end = makeSpokeEnd(WEB_CX, WEB_CY, node.x, node.y, 1.06)
+              const dx = node.x - WEB_CX
+const dy = node.y - WEB_CY
+const dist = Math.sqrt(dx * dx + dy * dy)
+const rBase = TIER_RADIUS[node.tier]
+const stopFraction = (dist - rBase - 6) / dist  // stops 6px before the circle edge
+const end = { x: WEB_CX + dx * stopFraction, y: WEB_CY + dy * stopFraction }
+
               const isHovNode = hovered === i
               const isConnectedToHov = hovered !== null && EDGES.some(
                 ([a, b]) => (a === hovered && b === i) || (b === hovered && a === i)
@@ -387,16 +397,26 @@ export default function TeamGrid() {
               const cx  = mx + (WEB_CX - mx) * pull
               const cy  = my + (WEB_CY - my) * pull
 
-              const strandColor = hovActive
-                ? (isDir ? '#0f911e' : '#3bff6c')
-                : (isDir ? 'rgba(15,145,30,0.38)' : 'rgba(59,255,108,0.15)')
+              // Trim strand endpoints to circle edges
+const dxa = nb.x - na.x, dya = nb.y - na.y
+const da = Math.sqrt(dxa * dxa + dya * dya)
+const ra = TIER_RADIUS[na.tier] + 4
+const rb = TIER_RADIUS[nb.tier] + 4
+const ax = na.x + (dxa / da) * ra
+const ay = na.y + (dya / da) * ra
+const bx = nb.x - (dxa / da) * rb
+const by = nb.y - (dya / da) * rb
+const edgePath = `M ${ax},${ay} Q ${cx},${cy} ${bx},${by}`
 
-              return (
-                <g key={i}>
-                  {/* Glow halo strand (blurred duplicate) */}
-                  {hovActive && (
-                    <path
-                      d={`M ${na.x},${na.y} Q ${cx},${cy} ${nb.x},${nb.y}`}
+const strandColor = hovActive
+  ? (isDir ? '#0f911e' : '#3bff6c')
+  : (isDir ? 'rgba(15,145,30,0.38)' : 'rgba(59,255,108,0.15)')
+
+return (
+  <g key={i}>
+    {hovActive && (
+      <path
+        d={edgePath}
                       fill="none"
                       stroke={isDir ? 'rgba(15,145,30,0.3)' : 'rgba(59,255,108,0.2)'}
                       strokeWidth={hovActive ? 8 : 4}
@@ -646,7 +666,7 @@ export default function TeamGrid() {
                         opacity={0.95}
                       />
                       <text
-                        x={node.x} y={node.y - r - 13}
+                        x={node.x} y={node.y - r - 15}
                         textAnchor="middle"
                         dominantBaseline="central"
                         fill="#3bff6c"
@@ -730,7 +750,7 @@ export default function TeamGrid() {
           </svg>
 
           {/* ── Legend ── */}
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '32px', marginTop: '16px' }}>
+          {/* <div style={{ display: 'flex', justifyContent: 'center', gap: '32px', marginTop: '0px' }}>
             {[
               { color: '#0f911e',              shadow: '0 0 6px rgba(15,145,30,0.7)',  label: 'Directors'  },
               { color: '#3bff6c',              shadow: '0 0 5px rgba(59,255,108,0.6)', label: 'Management' },
@@ -752,7 +772,7 @@ export default function TeamGrid() {
                 </span>
               </div>
             ))}
-          </div>
+          </div> */}
         </div>
 
         {/* ── Mobile card grid ── */}

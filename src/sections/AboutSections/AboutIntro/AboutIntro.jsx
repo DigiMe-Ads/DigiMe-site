@@ -5,19 +5,19 @@ import { useScrollReveal } from '../../../hooks/useScrollReveal'
 // ── Features config — add icon image paths when ready ──
 const FEATURES = [
   {
-    title: 'Data-Driven Strategy',
-    body:  'We develop tailored strategies based on each client\'s specific needs — powered by real data, not guesswork.',
-    icon:  '/images/About/established.png',   
+    title: 'Data-Led Strategy',
+    body:  'Every strategy we build is grounded in real insights, tailored to your business, your audience, and your goals, never guesswork.',
+    icon:  '/images/About/creativity2.png',   
   },
   {
-    title: 'Creative Expertise',
-    body:  'Our team of directors, marketers, designers, and developers brings the full picture to every campaign.',
-    icon:  '/images/About/inginuity.png',   
+    title: 'Creative That Works',
+    body:  'From strategy to execution, our team of marketers, designers, and developers collaborate to create campaigns that stand out and perform.',
+    icon:  '/images/About/results2.png',   
   },
   {
-    title: 'Real Results',
-    body:  'We focus on what actually matters — leads, engagement, and revenue streams that drive sustainable growth.',
-    icon:  '/images/About/low-cost.png',   
+    title: 'Results That Matter',
+    body:  'We focus on what actually drives growth, quality leads, meaningful engagement, and revenue that sustains your business long term.',
+    icon:  '/images/About/seo2.png',   
   },
 ]
 
@@ -241,11 +241,14 @@ export default function AboutIntro() {
               color:      'rgba(255,255,255,0.45)',
               margin:     0,
             }}>
-              DigiMe Ads (PVT) LTD provides data-driven digital marketing solutions, developing 
-              tailored strategies based on each client's specific needs. Our team consists of 
-              creative directors, strategic marketers, experienced designers, and developers who 
-              understand what it takes to achieve real results online. We firmly believe that the 
-              success of our clients is the strongest measure of our own performance.
+              At DigiMe Ads (PVT) LTD, we help brands grow through strategy-led digital marketing that delivers real results.
+
+              We take the time to understand your business, your audience, and your goals, then build tailored marketing strategies that are backed by data and designed for impact. Our team brings together strategic thinking, creative execution, and technical expertise to ensure every campaign and project is purposeful and performance-driven.
+
+              We’re not here to just run campaigns. We’re here to build brands, drive engagement, and create measurable growth.
+
+              Because for us, success is simple,
+              when your business grows, so do we.
             </p>
           </div>
         </div>

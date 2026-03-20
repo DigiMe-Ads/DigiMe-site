@@ -3,6 +3,7 @@ import Navbar                from '../../components/Navbar/Navbar'
 import Hero                  from '../../components/Hero/Hero'
 import Contact from '../../components/Contact/Contact'
 import AboutIntro from '../../sections/AboutSections/AboutIntro/AboutIntro'
+import TeamGrid from '../../sections/TeamSections/TeamGrid/TeamGrid'
 import OurFeatures from '../../sections/AboutSections/OurFeatures/OurFeatures'
 
 
@@ -21,6 +22,7 @@ export default function HomePage() {
         />
         <AboutIntro />
         <OurFeatures />
+        <TeamGrid />
       </main>
         <Contact />
     </>

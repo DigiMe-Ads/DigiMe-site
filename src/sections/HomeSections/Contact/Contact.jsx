@@ -35,7 +35,7 @@ const STYLES = `
 `
 
 // ─── PASTE YOUR WEB3FORMS ACCESS KEY HERE ───────────────────────────────────
-const WEB3FORMS_ACCESS_KEY = '85a78adc-9d09-4121-ab2f-8191735957c4'
+const WEB3FORMS_ACCESS_KEY = 'b24110b3-93db-4a6c-bbeb-f85e68928d05'
 // ────────────────────────────────────────────────────────────────────────────
 
 export default function Contact() {
@@ -223,7 +223,7 @@ export default function Contact() {
                 info@digimeads.com
               </p>
               <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 'clamp(1.4rem, 2vw, 1.8rem)', fontWeight: 700, color: '#ffffff', margin: 0, letterSpacing: '-0.02em' }}>
-                (+94) 77 744 4956
+                (+94) 777 444 956
               </p>
             </div>
           </div>

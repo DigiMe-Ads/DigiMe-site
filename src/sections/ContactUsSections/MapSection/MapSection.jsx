@@ -190,7 +190,7 @@ export default function MapSection() {
               color:      '#ffffff',
               margin:     '0 0 2px',
             }}>
-              DigiMeAds HQ
+              DigiMe Ads HQ
             </p>
             <p style={{
               fontFamily: "'Plus Jakarta Sans', sans-serif",
@@ -198,7 +198,7 @@ export default function MapSection() {
               color:      'rgba(255,255,255,0.4)',
               margin:     0,
             }}>
-              410/3 Baudhaloka Mawatha, Col 7
+              410/3, Baudhaloka Mawatha, Col 7
             </p>
           </div>
 

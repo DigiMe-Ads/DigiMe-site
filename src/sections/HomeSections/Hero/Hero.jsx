@@ -5,7 +5,7 @@ const BRANDS = [
   { name: 'Deli',         logo: '/images/Home/Logos/deli.webp'                      },
   { name: 'Deltano',      logo: '/images/Home/Logos/DelTano.png'                    },
   { name: 'FIFE',         logo: '/images/Home/Logos/FIFE.png'                       },
-  { name: 'HOG',          logo: '/images/Home/Logos/HOG Logo.png'                   },
+  { name: 'HOG',          logo: '/images/Home/Logos/HOG-white.png'                   },
   { name: 'Lavinia',      logo: '/images/Home/Logos/Lavinia.png'                    },
   { name: 'MAYS',         logo: '/images/Home/Logos/mays.png'                       },
   { name: 'Nidahas',      logo: '/images/Home/Logos/NIDAHAS.png'                    },
@@ -13,6 +13,7 @@ const BRANDS = [
   { name: 'SONO',         logo: '/images/Home/Logos/SONO.png'                       },
   { name: 'Square',       logo: '/images/Home/Logos/square_logo.png'                },
   { name: 'Square Space', logo: '/images/Home/Logos/The-Square-Space.webp'          },
+  { name: 'Kickerz', logo: '/images/Home/Logos/kickerz.png'}
 ]
 
 const KEYFRAMES = `
@@ -62,10 +63,10 @@ function OrbitTextSVG() {
       <g style={{ animation: 'spinText 14s linear infinite', transformOrigin: '100px 100px' }}>
         <text style={{
           fontSize: '13.5px', fontFamily: "'Plus Jakarta Sans', sans-serif",
-          fontWeight: 500, fill: 'rgba(255,255,255,0.85)', letterSpacing: '4px',
+          fontWeight: 500, fill: 'rgba(255,255,255,0.85)', letterSpacing: '8.5px',
         }}>
           <textPath href="#circle-path" startOffset="0%">
-            S · T · O · R · Y · P · M · Y · P · R · O · J · E · C · T · S ·
+            D · I · G · I · M · E · A · D · S 
           </textPath>
         </text>
       </g>
@@ -222,6 +223,7 @@ export default function Hero() {
         position: 'relative', zIndex: 1, paddingTop: '72px',
         minHeight: '100vh', display: 'flex', flexDirection: 'column',
         justifyContent: 'space-between', paddingLeft: '285px', paddingRight: '0',
+        overflow: 'visible',
       }}>
 
         {/* Main text */}
@@ -234,21 +236,24 @@ export default function Hero() {
               fontSize: '13px', fontWeight: 500, letterSpacing: '0.22em',
               textTransform: 'uppercase', color: 'rgba(255,255,255,0.55)', marginBottom: '20px',
             }}>
-              <span style={{ color: '#b5cc22', fontSize: '12px' }}>✦</span>
-              Engineering a Better
+              <span style={{ color: '#0f911e', fontSize: '12px' }}>✦</span>
+              Stop  <span style={{ color: '#0f911e', fontWeight: 300 }}>Guessing,</span>
+              Start  <span style={{ color: '#0f911e', fontWeight: 300 }}>Growing</span>
             </p>
 
             <h1 className="hero-h1" style={{
               ...fadeUp(0.35),
               fontFamily: "'Plus Jakarta Sans', sans-serif",
-              fontSize: '80px', fontWeight: 700, lineHeight: '96px',
+              fontSize: '70px', fontWeight: 700, lineHeight: '80px',
               letterSpacing: '-0.01em', marginBottom: '24px', color: '#ffffff',
             }}>
-              Innovating{' '}
-              <span style={{ color: '#0f911e', fontWeight: 300 }}>for a</span>
-              <br />
-              <span style={{ color: '#0f911e', fontWeight: 300 }}>Better</span>
-              {' '}Future
+              <span style={{ fontWeight: 700 }}>Growth </span> {' '}
+              <span style={{ color: '#0f911e', fontWeight: 300 }}>starts with the right</span>
+              {' '} <span style={{ fontWeight: 700 }}>Strategy.  </span>
+              
+              
+              {/* <br/>
+              <span style={{ fontWeight: 300 }}>Real business</span> <span style={{ color: '#0f911e', fontWeight: 700 }}>impact.   </span> */}
             </h1>
 
             <p style={{
@@ -297,6 +302,8 @@ export default function Hero() {
             ...fadeUp(0.85),
             borderTop: '1px solid rgba(255,255,255,0.08)',
             display: 'flex', alignItems: 'stretch',
+            marginLeft:  '-285px',   // ← breaks out left past the padding
+    marginRight: '0', 
           }}
         >
           {/* Label */}
@@ -373,7 +380,7 @@ export default function Hero() {
                       src={brand.logo}
                       alt={brand.name}
                       style={{
-                        height: '36px',       // slightly larger
+                        height: '56px',       // slightly larger
                         width: 'auto',
                         maxWidth: '110px',
                         objectFit: 'contain',

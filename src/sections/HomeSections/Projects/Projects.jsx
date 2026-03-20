@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react'
 import { useScrollReveal } from '../../../hooks/useScrollReveal'
 
 const PROJECTS = [
-  { name: 'NIDAHAS',      type: '2026',    image: '/images/Home/Projects/Nidahas.png' },
-  { name: 'MAYS TABLE',         type: '2026',    image: '/images/Home/Projects/Mays-Table.png' },
-  { name: 'MIRISSA', type: '2026',    image: '/images/Home/Projects/Mirissa.png' },
+  { name: 'NIDAHAS',      type: '2026',    image: '/images/Home/Projects/nidahas2.png' },
+  { name: 'MAYS TABLE',         type: '2026',    image: '/images/Home/Projects/mays2.png' },
+  { name: 'MIRISSA', type: '2026',    image: '/images/Home/Projects/mirissa2.png' },
 ]
 
 const BREAKPOINTS = `
@@ -129,7 +129,7 @@ export default function Projects() {
                 color:        '#ffffff',
                 marginBottom: '24px',
               }}>
-                Our selected<br />
+                Our latest<br />
                 <span style={{ color: '#0f911e' }}>projects</span>
               </h2>
 
@@ -325,7 +325,9 @@ function ProjectCard({ project, revealRef, isVisible, delay, index }) {
           opacity:        hovered ? 1 : 0,
           transition:     'opacity 0.35s ease',
         }}>
-          <span style={{
+          <a 
+          href='/portfolio'
+          style={{
             fontSize:      '0.85rem',
             fontWeight:    600,
             letterSpacing: '0.1em',
@@ -336,9 +338,10 @@ function ProjectCard({ project, revealRef, isVisible, delay, index }) {
             transform:     hovered ? 'translateY(0)' : 'translateY(10px)',
             transition:    'transform 0.35s cubic-bezier(0.16,1,0.3,1)',
             display:       'inline-block',
+            textDecoration: 'none',
           }}>
             View Project ↗
-          </span>
+          </a>
         </div>
       </div>
 
@@ -359,13 +362,13 @@ function ProjectCard({ project, revealRef, isVisible, delay, index }) {
           }}>
             {project.name}
           </h3>
-          <p style={{
+          {/* <p style={{
             fontSize: '0.8rem',
             color:    'rgba(255,255,255,0.4)',
             margin:   0,
           }}>
             {project.type}
-          </p>
+          </p> */}
         </div>
 
         <span style={{

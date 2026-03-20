@@ -2,16 +2,16 @@
 import './Marquee.css'
 
 const ITEMS = [
-  { text: 'APPLICATION', accent: false },
-  { text: 'WEB DESIGN',  accent: true  },
-  { text: 'DEVELOPMENT', accent: false },
+  { text: 'SOCIAL MEDIA MANAGEMENT', accent: false },
+  { text: 'UI/UX DESIGN',  accent: true  },
+  { text: 'WEB DEVELOPMENT', accent: false },
   { text: 'BRANDING',    accent: false },
   { text: 'STRATEGY',    accent: true  },
-  { text: 'APPLICATION', accent: false },
-  { text: 'WEB DESIGN',  accent: true  },
-  { text: 'DEVELOPMENT', accent: false },
-  { text: 'BRANDING',    accent: false },
-  { text: 'STRATEGY',    accent: true  },
+  { text: 'SEO', accent: false },
+  { text: 'VIDEOGRAPHY',  accent: true  },
+  { text: 'PHOTOGRAPHY', accent: false },
+  // { text: 'BRANDING',    accent: false },
+  // { text: 'STRATEGY',    accent: true  },
 ]
 
 export default function Marquee() {
