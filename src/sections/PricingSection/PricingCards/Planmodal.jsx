@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import InputField from './InputField'
-import { WEB3FORMS_ACCESS_KEY } from './pricingData'
+import { WEB3FORMS_ACCESS_KEY } from './PricingData'
 
 export default function PlanModal({ plan, onClose }) {
   const [form,     setForm]     = useState({ name: '', email: '', phone: '', message: '' })
