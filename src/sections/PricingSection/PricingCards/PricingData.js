@@ -1,5 +1,6 @@
 // ─── Web3Forms access key ────────────────────────────────────────────────────
-export const WEB3FORMS_ACCESS_KEY = '85a78adc-9d09-4121-ab2f-8191735957c4'
+export const WEB3FORMS_ACCESS_KEY = 'b24110b3-93db-4a6c-bbeb-f85e68928d05'
+
 
 // ─── Plan definitions ─────────────────────────────────────────────────────────
 export const PLANS = [

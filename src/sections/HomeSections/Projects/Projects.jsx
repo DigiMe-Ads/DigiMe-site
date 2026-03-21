@@ -3,7 +3,7 @@ import { useScrollReveal } from '../../../hooks/useScrollReveal'
 
 const PROJECTS = [
   { name: 'NIDAHAS',      type: '2026',    image: '/images/Home/Projects/nidahas2.png' },
-  { name: 'MAYS TABLE',         type: '2026',    image: '/images/Home/Projects/mays2.png' },
+  { name: 'MAYs TABLE',         type: '2026',    image: '/images/Home/Projects/mays2.png' },
   { name: 'MIRISSA', type: '2026',    image: '/images/Home/Projects/mirissa2.png' },
 ]
 
