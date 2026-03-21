@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { useScrollReveal } from '../../../hooks/useScrollReveal'
 import { PLANS, WEB_PLANS, PRICING_STYLES } from './PricingData'
 import PricingCard from './PricingCard'
-import PlanModal   from './PlanModal'
+import PlanModal   from './Planmodal'
 import WebDevCard  from './WebdevCard'
 import WebDevModal from './WebdevModal'
 
