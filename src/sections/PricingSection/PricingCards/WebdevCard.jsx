@@ -102,7 +102,7 @@ export default function WebDevCard({ plan, index, onChoose }) {
       }}>
         <div>
           {/* Badge */}
-          <span style={{
+          {/* <span style={{
             display:       'inline-flex',
             alignItems:    'center',
             gap:           '5px',
@@ -120,7 +120,7 @@ export default function WebDevCard({ plan, index, onChoose }) {
           }}>
             <span style={{ width: '5px', height: '5px', borderRadius: '50%', background: 'rgba(0,0,0,0.5)' }}/>
             {plan.badge}
-          </span>
+          </span> */}
 
           <h3 style={{
             fontFamily: "'Plus Jakarta Sans', sans-serif",
