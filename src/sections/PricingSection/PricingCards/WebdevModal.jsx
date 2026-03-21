@@ -85,9 +85,9 @@ export default function WebDevModal({ plan, onClose }) {
   }[status]
 
   const btnBg = {
-    idle:    'rgba(99,102,241,0.9)',
-    sending: 'rgba(99,102,241,0.4)',
-    sent:    'rgba(34,197,94,0.85)',
+    idle:    '#0f911e',
+    sending: 'rgba(15,145,30,0.5)',
+    sent:    '#16a34a',
     error:   '#dc2626',
   }[status]
 
@@ -96,39 +96,39 @@ export default function WebDevModal({ plan, onClose }) {
       className="plan-modal-backdrop"
       onClick={(e) => { if (e.target === e.currentTarget) onClose() }}
       style={{
-        position:       'fixed',
-        inset:          0,
-        zIndex:         2000,
-        display:        'flex',
-        alignItems:     'center',
-        justifyContent: 'center',
-        padding:        '24px 20px',
-        boxSizing:      'border-box',
-        backdropFilter: 'blur(18px) brightness(0.25)',
+        position:             'fixed',
+        inset:                0,
+        zIndex:               2000,
+        display:              'flex',
+        alignItems:           'center',
+        justifyContent:       'center',
+        padding:              '24px 20px',
+        boxSizing:            'border-box',
+        backdropFilter:       'blur(18px) brightness(0.25)',
         WebkitBackdropFilter: 'blur(18px) brightness(0.25)',
-        background:     'rgba(0,0,0,0.7)',
-        animation:      'planModalBackdropIn 0.25s ease',
-        fontFamily:     "'Plus Jakarta Sans', sans-serif",
+        background:           'rgba(0,0,0,0.7)',
+        animation:            'planModalBackdropIn 0.25s ease',
+        fontFamily:           "'Plus Jakarta Sans', sans-serif",
       }}
     >
       <div
         className="plan-modal-inner"
         style={{
-          position:      'relative',
-          width:         '100%',
-          maxWidth:      '680px',
-          background:    '#0f0e2a',
-          border:        '1px solid rgba(129,140,248,0.15)',
-          borderRadius:  '20px',
-          padding:       '36px 40px',
-          boxShadow:     '0 40px 100px rgba(0,0,0,0.7), 0 0 0 1px rgba(99,102,241,0.08)',
-          animation:     'planModalIn 0.3s cubic-bezier(0.16,1,0.3,1)',
-          maxHeight:     'calc(100vh - 48px)',
-          overflowY:     'auto',
-          boxSizing:     'border-box',
+          position:     'relative',
+          width:        '100%',
+          maxWidth:     '680px',
+          background:   '#111111',
+          border:       '1px solid rgba(59,255,108,0.12)',
+          borderRadius: '20px',
+          padding:      '36px 40px',
+          boxShadow:    '0 40px 100px rgba(0,0,0,0.7), 0 0 0 1px rgba(15,145,30,0.06)',
+          animation:    'planModalIn 0.3s cubic-bezier(0.16,1,0.3,1)',
+          maxHeight:    'calc(100vh - 48px)',
+          overflowY:    'auto',
+          boxSizing:    'border-box',
         }}
       >
-        {/* Subtle corner glow */}
+        {/* Corner glow */}
         <div aria-hidden="true" style={{
           position:      'absolute',
           top:           '-40px',
@@ -136,7 +136,7 @@ export default function WebDevModal({ plan, onClose }) {
           width:         '220px',
           height:        '220px',
           borderRadius:  '50%',
-          background:    'radial-gradient(ellipse, rgba(99,102,241,0.18) 0%, transparent 70%)',
+          background:    'radial-gradient(ellipse, rgba(15,145,30,0.12) 0%, transparent 70%)',
           pointerEvents: 'none',
         }}/>
 
@@ -159,7 +159,7 @@ export default function WebDevModal({ plan, onClose }) {
               fontWeight:    600,
               letterSpacing: '0.2em',
               textTransform: 'uppercase',
-              color:         'rgba(255,255,255,0.3)',
+              color:         'rgba(255,255,255,0.35)',
               margin:        '0 0 10px',
             }}>
               <span style={{ color: WEB_ACCENT }}>✦</span>
@@ -175,18 +175,18 @@ export default function WebDevModal({ plan, onClose }) {
               lineHeight:    1.2,
             }}>
               {plan.name}{' '}
-              <span style={{ color: WEB_ACCENT_BRIGHT, fontWeight: 400, fontStyle: 'italic' }}>
+              <span style={{ color: WEB_ACCENT, fontWeight: 400, fontStyle: 'italic' }}>
                 Package
               </span>
             </h3>
           </div>
 
-          {/* Close */}
+          {/* Close button */}
           <button
             onClick={onClose}
             style={{
-              background:     'rgba(129,140,248,0.07)',
-              border:         '1px solid rgba(129,140,248,0.15)',
+              background:     'rgba(255,255,255,0.06)',
+              border:         '1px solid rgba(255,255,255,0.1)',
               borderRadius:   '50%',
               width:          '36px',
               height:         '36px',
@@ -195,16 +195,16 @@ export default function WebDevModal({ plan, onClose }) {
               display:        'flex',
               alignItems:     'center',
               justifyContent: 'center',
-              color:          'rgba(255,255,255,0.5)',
+              color:          'rgba(255,255,255,0.55)',
               transition:     'background 0.2s ease, color 0.2s ease',
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.background = 'rgba(129,140,248,0.18)'
+              e.currentTarget.style.background = 'rgba(255,255,255,0.12)'
               e.currentTarget.style.color = '#fff'
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.background = 'rgba(129,140,248,0.07)'
-              e.currentTarget.style.color = 'rgba(255,255,255,0.5)'
+              e.currentTarget.style.background = 'rgba(255,255,255,0.06)'
+              e.currentTarget.style.color = 'rgba(255,255,255,0.55)'
             }}
             aria-label="Close"
           >
@@ -218,8 +218,8 @@ export default function WebDevModal({ plan, onClose }) {
 
         {/* ── Package summary banner ── */}
         <div style={{
-          background:     'rgba(99,102,241,0.08)',
-          border:         '1px solid rgba(129,140,248,0.2)',
+          background:     'rgba(59,255,108,0.06)',
+          border:         '1px solid rgba(59,255,108,0.15)',
           borderRadius:   '12px',
           padding:        '16px 20px',
           marginBottom:   '24px',
@@ -252,7 +252,6 @@ export default function WebDevModal({ plan, onClose }) {
             }}>
               {plan.name}
             </p>
-            {/* Stack */}
             <p style={{
               fontFamily: "'Plus Jakarta Sans', sans-serif",
               fontSize:   '11px',
@@ -277,7 +276,7 @@ export default function WebDevModal({ plan, onClose }) {
             <p style={{
               fontFamily: "'Plus Jakarta Sans', sans-serif",
               fontSize:   '12px',
-              color:      'rgba(255,255,255,0.3)',
+              color:      'rgba(255,255,255,0.35)',
               margin:     '3px 0 0',
             }}>
               {plan.period}
@@ -299,8 +298,8 @@ export default function WebDevModal({ plan, onClose }) {
               fontFamily:   "'Plus Jakarta Sans', sans-serif",
               fontSize:     '11px',
               fontWeight:   500,
-              color:        'rgba(255,255,255,0.4)',
-              background:   'rgba(255,255,255,0.04)',
+              color:        'rgba(255,255,255,0.45)',
+              background:   'rgba(255,255,255,0.05)',
               border:       '1px solid rgba(255,255,255,0.07)',
               borderRadius: '100px',
               padding:      '4px 12px',
@@ -314,8 +313,8 @@ export default function WebDevModal({ plan, onClose }) {
               fontSize:     '11px',
               fontWeight:   500,
               color:        WEB_ACCENT,
-              background:   'rgba(99,102,241,0.08)',
-              border:       `1px solid rgba(129,140,248,0.18)`,
+              background:   'rgba(15,145,30,0.08)',
+              border:       '1px solid rgba(59,255,108,0.18)',
               borderRadius: '100px',
               padding:      '4px 12px',
             }}>
@@ -327,13 +326,13 @@ export default function WebDevModal({ plan, onClose }) {
         {/* ── Divider ── */}
         <div style={{
           height:       '1px',
-          background:   'rgba(129,140,248,0.1)',
+          background:   'rgba(255,255,255,0.06)',
           marginBottom: '28px',
           position:     'relative',
           zIndex:       1,
         }}/>
 
-        {/* ── Form — violet-accented inputs ── */}
+        {/* ── Form ── */}
         <div
           className="plan-modal-grid"
           style={{
@@ -344,7 +343,6 @@ export default function WebDevModal({ plan, onClose }) {
             zIndex:              1,
           }}
         >
-          {/* Reuse InputField but override focus colour via webdev-input class on textarea */}
           <InputField
             label="Full Name *"
             placeholder="Your Full Name"
@@ -354,7 +352,6 @@ export default function WebDevModal({ plan, onClose }) {
             onFocus={() => setFocused('name')}
             onBlur={() => setFocused(null)}
             disabled={status === 'sending'}
-            accentColor="rgba(129,140,248,0.55)"
           />
 
           <InputField
@@ -366,7 +363,6 @@ export default function WebDevModal({ plan, onClose }) {
             onFocus={() => setFocused('email')}
             onBlur={() => setFocused(null)}
             disabled={status === 'sending'}
-            accentColor="rgba(129,140,248,0.55)"
           />
 
           <div style={{ gridColumn: '1 / -1' }}>
@@ -379,7 +375,6 @@ export default function WebDevModal({ plan, onClose }) {
               onFocus={() => setFocused('phone')}
               onBlur={() => setFocused(null)}
               disabled={status === 'sending'}
-              accentColor="rgba(129,140,248,0.55)"
             />
           </div>
 
@@ -389,14 +384,14 @@ export default function WebDevModal({ plan, onClose }) {
               fontFamily:    "'Plus Jakarta Sans', sans-serif",
               fontSize:      '13px',
               fontWeight:    500,
-              color:         'rgba(255,255,255,0.5)',
+              color:         'rgba(255,255,255,0.55)',
               marginBottom:  '10px',
               letterSpacing: '0.01em',
             }}>
               Additional Message
             </label>
             <textarea
-              className="webdev-input"
+              className="plan-input"
               placeholder="Tell us about your project, goals, or any specific requirements…"
               rows={3}
               value={form.message}
@@ -408,7 +403,7 @@ export default function WebDevModal({ plan, onClose }) {
                 width:        '100%',
                 background:   'transparent',
                 border:       'none',
-                borderBottom: `1px solid ${focused === 'message' ? 'rgba(129,140,248,0.55)' : 'rgba(255,255,255,0.1)'}`,
+                borderBottom: `1px solid ${focused === 'message' ? 'rgba(59,255,108,0.55)' : 'rgba(255,255,255,0.12)'}`,
                 borderRadius: 0,
                 padding:      '8px 0',
                 fontFamily:   "'Plus Jakarta Sans', sans-serif",
@@ -444,7 +439,7 @@ export default function WebDevModal({ plan, onClose }) {
                 alignItems:   'center',
                 gap:          '10px',
                 background:   btnBg,
-                color:        '#ffffff',
+                color:        status === 'error' ? '#ffffff' : '#0a0a0a',
                 fontFamily:   "'Plus Jakarta Sans', sans-serif",
                 fontSize:     '14px',
                 fontWeight:   600,
@@ -458,13 +453,13 @@ export default function WebDevModal({ plan, onClose }) {
               }}
               onMouseEnter={(e) => {
                 if (status === 'idle') {
-                  e.currentTarget.style.background = 'rgba(129,140,248,0.95)'
+                  e.currentTarget.style.background = '#5fff8a'
                   e.currentTarget.style.transform  = 'translateY(-2px)'
                 }
               }}
               onMouseLeave={(e) => {
                 if (status === 'idle') {
-                  e.currentTarget.style.background = 'rgba(99,102,241,0.9)'
+                  e.currentTarget.style.background = '#0f911e'
                   e.currentTarget.style.transform  = 'translateY(0)'
                 }
               }}
@@ -474,7 +469,7 @@ export default function WebDevModal({ plan, onClose }) {
                 <span style={{
                   width:          '36px',
                   height:         '36px',
-                  background:     'rgba(255,255,255,0.15)',
+                  background:     'rgba(0,0,0,0.2)',
                   borderRadius:   '50%',
                   display:        'flex',
                   alignItems:     'center',
@@ -482,7 +477,7 @@ export default function WebDevModal({ plan, onClose }) {
                   flexShrink:     0,
                 }}>
                   <svg width="10" height="10" viewBox="0 0 10 10">
-                    <circle cx="5" cy="5" r="5" fill="white" opacity="0.35"/>
+                    <circle cx="5" cy="5" r="5" fill="white" opacity="0.4"/>
                     <circle cx="5" cy="5" r="2" fill="white"/>
                   </svg>
                 </span>

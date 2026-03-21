@@ -198,7 +198,7 @@ export default function ContentWall() {
     const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100)
     camera.position.set(0, 0, 5)
     const geo   = new THREE.TorusGeometry(1.35, 0.52, 20, 80)
-    const mat   = new THREE.MeshBasicMaterial({ color: 0xd8b4fe, wireframe: true, transparent: true, opacity: 0.75 })
+    const mat   = new THREE.MeshBasicMaterial({ color: 0x0f911e, wireframe: true, transparent: true, opacity: 0.75 })
     const torus = new THREE.Mesh(geo, mat)
     torus.rotation.x = 0.5
     torus.rotation.z = 0.15

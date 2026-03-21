@@ -1,32 +1,28 @@
 import { useState, useEffect, useRef } from 'react'
 
-// Indigo/violet palette constants — used consistently across card + modal
-export const WEB_ACCENT       = '#818cf8'   // indigo-400
-export const WEB_ACCENT_BRIGHT = '#a78bfa'  // violet-400
-export const WEB_GRADIENT     = 'linear-gradient(160deg, #312e81 0%, #1e1b4b 45%, #0f0e2a 100%)'
-export const WEB_GLOW         = 'rgba(99,102,241,0.18)'
+// Kept as named exports so WebDevModal can import them
+export const WEB_ACCENT        = '#0f911e'
+export const WEB_ACCENT_BRIGHT = '#3bff6c'
+export const WEB_GRADIENT      = 'linear-gradient(160deg, #3dca6a 0%, #22a84e 40%, #1a8a3e 100%)'
+export const WEB_GLOW          = 'rgba(15,145,30,0.18)'
 
 // Decorative SVG: circuit-board-style grid
 function CircuitSVG() {
   return (
     <svg width="100" height="100" viewBox="0 0 100 100" fill="none">
-      {/* Outer ring */}
-      <circle cx="50" cy="50" r="46" stroke="rgba(129,140,248,0.3)" strokeWidth="1"/>
-      {/* Grid lines */}
+      <circle cx="50" cy="50" r="46" stroke="rgba(59,255,108,0.3)" strokeWidth="1"/>
       {[20, 35, 50, 65, 80].map((v, i) => (
         <g key={i}>
-          <line x1={v} y1="10" x2={v} y2="90" stroke="rgba(129,140,248,0.15)" strokeWidth="0.8"/>
-          <line x1="10" y1={v} x2="90" y2={v} stroke="rgba(129,140,248,0.15)" strokeWidth="0.8"/>
+          <line x1={v} y1="10" x2={v} y2="90" stroke="rgba(59,255,108,0.1)" strokeWidth="0.8"/>
+          <line x1="10" y1={v} x2="90" y2={v} stroke="rgba(59,255,108,0.1)" strokeWidth="0.8"/>
         </g>
       ))}
-      {/* Corner nodes */}
       {[[20,20],[80,20],[20,80],[80,80],[50,50]].map(([cx,cy], i) => (
-        <circle key={i} cx={cx} cy={cy} r="3.5" fill="rgba(129,140,248,0.5)"
-          stroke="rgba(167,139,250,0.6)" strokeWidth="1"/>
+        <circle key={i} cx={cx} cy={cy} r="3.5"
+          fill="rgba(59,255,108,0.4)" stroke="rgba(15,145,30,0.6)" strokeWidth="1"/>
       ))}
-      {/* Connecting traces */}
-      <path d="M20 20 L50 20 L50 50 L80 50" stroke="rgba(129,140,248,0.35)" strokeWidth="1.2" fill="none"/>
-      <path d="M80 20 L80 50 L50 80" stroke="rgba(167,139,250,0.25)" strokeWidth="1" fill="none"/>
+      <path d="M20 20 L50 20 L50 50 L80 50" stroke="rgba(59,255,108,0.3)" strokeWidth="1.2" fill="none"/>
+      <path d="M80 20 L80 50 L50 80"         stroke="rgba(15,145,30,0.2)"  strokeWidth="1"   fill="none"/>
     </svg>
   )
 }
@@ -73,68 +69,56 @@ export default function WebDevCard({ plan, index, onChoose }) {
       onMouseLeave={() => setCardHovered(false)}
       onMouseMove={handleMouseMove}
       style={{
-        flex:          1,
-        borderRadius:  '20px',
-        overflow:      'hidden',
-        background:    WEB_GRADIENT,
-        padding:       '36px 32px 32px',
-        display:       'flex',
-        flexDirection: 'column',
-        boxShadow:     cardHovered
-          ? '0 32px 80px rgba(99,102,241,0.25), 0 0 0 1px rgba(129,140,248,0.2)'
-          : '0 16px 48px rgba(0,0,0,0.5), 0 0 0 1px rgba(129,140,248,0.1)',
-        transition:    'box-shadow 0.35s ease, transform 0.35s ease',
-        transform:     cardHovered ? 'translateY(-5px)' : 'translateY(0)',
-        cursor:        'default',
-        perspective:   '600px',
-        position:      'relative',
+        width:        '100%',
+        borderRadius: '20px',
+        overflow:     'hidden',
+        background:   WEB_GRADIENT,
+        padding:      '36px 40px',
+        display:      'flex',
+        flexDirection:'row',
+        gap:          '48px',
+        alignItems:   'stretch',
+        boxShadow:    cardHovered
+          ? '0 32px 80px rgba(0,0,0,0.5)'
+          : '0 16px 40px rgba(0,0,0,0.3)',
+        transition:   'box-shadow 0.3s ease, transform 0.35s ease',
+        transform:    cardHovered ? 'translateY(-4px)' : 'translateY(0)',
+        cursor:       'default',
+        perspective:  '600px',
+        position:     'relative',
+        borderRight:  '1px solid rgba(255,255,255,0.1)',
+        borderTop:    '1px solid rgba(255,255,255,0.15)',
       }}
     >
-      {/* Subtle radial glow top-right */}
-      <div aria-hidden="true" style={{
-        position:      'absolute',
-        top:           '-30px',
-        right:         '-30px',
-        width:         '200px',
-        height:        '200px',
-        borderRadius:  '50%',
-        background:    'radial-gradient(ellipse, rgba(99,102,241,0.22) 0%, transparent 70%)',
-        pointerEvents: 'none',
-      }}/>
-
-      {/* ── Top row: name + price + 3D object ── */}
+      {/* ══ LEFT: identity + 3D object ══ */}
       <div style={{
+        flexShrink:     0,
+        width:          '260px',
         display:        'flex',
+        flexDirection:  'column',
         justifyContent: 'space-between',
-        alignItems:     'flex-start',
-        marginBottom:   '8px',
         position:       'relative',
         zIndex:         1,
       }}>
         <div>
-          {/* One-time badge */}
+          {/* Badge */}
           <span style={{
             display:       'inline-flex',
             alignItems:    'center',
             gap:           '5px',
-            background:    'rgba(129,140,248,0.15)',
-            border:        '1px solid rgba(129,140,248,0.3)',
+            background:    'rgba(0,0,0,0.15)',
+            border:        '1px solid rgba(0,0,0,0.2)',
             borderRadius:  '100px',
             padding:       '3px 10px',
-            marginBottom:  '10px',
+            marginBottom:  '14px',
             fontFamily:    "'Plus Jakarta Sans', sans-serif",
             fontSize:      '10px',
             fontWeight:    700,
-            color:         WEB_ACCENT_BRIGHT,
+            color:         'rgba(0,0,0,0.7)',
             letterSpacing: '0.1em',
             textTransform: 'uppercase',
           }}>
-            <span style={{
-              width:        '5px',
-              height:       '5px',
-              borderRadius: '50%',
-              background:   WEB_ACCENT_BRIGHT,
-            }}/>
+            <span style={{ width: '5px', height: '5px', borderRadius: '50%', background: 'rgba(0,0,0,0.5)' }}/>
             {plan.badge}
           </span>
 
@@ -142,18 +126,19 @@ export default function WebDevCard({ plan, index, onChoose }) {
             fontFamily: "'Plus Jakarta Sans', sans-serif",
             fontSize:   '22px',
             fontWeight: 700,
-            color:      '#ffffff',
-            margin:     '0 0 8px',
+            color:      '#000000',
+            margin:     '0 0 10px',
           }}>
             {plan.name}
           </h3>
 
-          <div style={{ display: 'flex', alignItems: 'baseline', gap: '6px' }}>
+          {/* Price */}
+          <div style={{ display: 'flex', alignItems: 'baseline', gap: '6px', marginBottom: '16px' }}>
             <span style={{
               fontFamily:    "'Plus Jakarta Sans', sans-serif",
-              fontSize:      'clamp(2rem, 3.5vw, 2.8rem)',
+              fontSize:      'clamp(1.8rem, 2.5vw, 2.4rem)',
               fontWeight:    800,
-              color:         '#ffffff',
+              color:         '#000000',
               letterSpacing: '-0.03em',
               lineHeight:    1,
             }}>
@@ -161,38 +146,63 @@ export default function WebDevCard({ plan, index, onChoose }) {
             </span>
             <span style={{
               fontFamily: "'Plus Jakarta Sans', sans-serif",
-              fontSize:   '14px',
-              fontWeight: 400,
-              color:      'rgba(255,255,255,0.4)',
+              fontSize:   '13px',
+              color:      'rgba(0,0,0,0.55)',
             }}>
               {plan.period}
             </span>
           </div>
+
+          {/* Stack pill */}
+          <div style={{
+            display:      'inline-flex',
+            alignItems:   'center',
+            gap:          '6px',
+            background:   'rgba(0,0,0,0.12)',
+            border:       '1px solid rgba(0,0,0,0.15)',
+            borderRadius: '8px',
+            padding:      '6px 12px',
+            width:        'fit-content',
+          }}>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+              stroke="rgba(0,0,0,0.6)" strokeWidth="2" strokeLinecap="round">
+              <polyline points="16 18 22 12 16 6"/>
+              <polyline points="8 6 2 12 8 18"/>
+            </svg>
+            <span style={{
+              fontFamily:    "'Plus Jakarta Sans', sans-serif",
+              fontSize:      '11px',
+              fontWeight:    600,
+              color:         'rgba(0,0,0,0.6)',
+              letterSpacing: '0.04em',
+            }}>
+              {plan.stack}
+            </span>
+          </div>
         </div>
 
-        {/* 3D object */}
+        {/* 3D object — bottom of left panel */}
         <div style={{
-          width:          '80px',
-          height:         '80px',
-          flexShrink:     0,
+          width:          '100px',
+          height:         '100px',
           display:        'flex',
           alignItems:     'center',
           justifyContent: 'center',
           perspective:    '800px',
           transformStyle: 'preserve-3d',
-          marginTop:      '-4px',
+          marginTop:      '24px',
         }}>
           <div
             ref={imgRef}
             style={{
-              width:          '90px',
-              height:         '90px',
+              width:          '100px',
+              height:         '100px',
               display:        'flex',
               alignItems:     'center',
               justifyContent: 'center',
               transformStyle: 'preserve-3d',
               willChange:     'transform',
-              filter:         'drop-shadow(0 6px 18px rgba(99,102,241,0.45))',
+              filter:         'drop-shadow(0 8px 16px rgba(0,0,0,0.3))',
             }}
           >
             {plan.image
@@ -203,158 +213,140 @@ export default function WebDevCard({ plan, index, onChoose }) {
         </div>
       </div>
 
-      {/* Tech stack pill */}
-      <div style={{
-        display:      'inline-flex',
-        alignItems:   'center',
-        gap:          '6px',
-        background:   'rgba(255,255,255,0.05)',
-        border:       '1px solid rgba(255,255,255,0.08)',
-        borderRadius: '8px',
-        padding:      '6px 12px',
-        marginBottom: '20px',
-        width:        'fit-content',
-        position:     'relative',
-        zIndex:       1,
-      }}>
-        {/* Code icon */}
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
-          stroke={WEB_ACCENT} strokeWidth="2" strokeLinecap="round">
-          <polyline points="16 18 22 12 16 6"/>
-          <polyline points="8 6 2 12 8 18"/>
-        </svg>
-        <span style={{
-          fontFamily:    "'Plus Jakarta Sans', sans-serif",
-          fontSize:      '11px',
-          fontWeight:    600,
-          color:         'rgba(255,255,255,0.5)',
-          letterSpacing: '0.04em',
-        }}>
-          {plan.stack}
-        </span>
-      </div>
-
-      {/* Divider */}
-      <div style={{
-        height:       '1px',
-        background:   'rgba(129,140,248,0.15)',
-        marginBottom: '20px',
-        position:     'relative',
-        zIndex:       1,
+      {/* Vertical divider */}
+      <div className="webdev-divider" style={{
+        width:      '1px',
+        background: 'rgba(0,0,0,0.15)',
+        flexShrink: 0,
+        alignSelf:  'stretch',
       }}/>
 
-      {/* What's included */}
-      <p style={{
-        fontFamily:    "'Plus Jakarta Sans', sans-serif",
-        fontSize:      '12px',
-        fontWeight:    700,
-        color:         WEB_ACCENT,
-        margin:        '0 0 14px',
-        letterSpacing: '0.12em',
-        textTransform: 'uppercase',
-        position:      'relative',
-        zIndex:        1,
+      {/* ══ RIGHT: features + button ══ */}
+      <div style={{
+        flex:           1,
+        display:        'flex',
+        flexDirection:  'column',
+        justifyContent: 'space-between',
+        position:       'relative',
+        zIndex:         1,
+        minWidth:       0,
       }}>
-        What's included
-      </p>
+        {/* Two-column feature grid */}
+        <div style={{
+          display:             'grid',
+          gridTemplateColumns: '1fr 1fr',
+          gap:                 '0 32px',
+          marginBottom:        '24px',
+        }}>
+          {/* What's included */}
+          <div>
+            <p style={{
+              fontFamily:    "'Plus Jakarta Sans', sans-serif",
+              fontSize:      '13px',
+              fontWeight:    700,
+              color:         '#000000',
+              margin:        '0 0 12px',
+              letterSpacing: '0.01em',
+            }}>
+              What's included
+            </p>
+            <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+              {plan.features.map((feat) => (
+                <li key={feat} style={{
+                  display:     'flex',
+                  alignItems:  'center',
+                  gap:         '10px',
+                  fontFamily:  "'Plus Jakarta Sans', sans-serif",
+                  fontSize:    '13px',
+                  color:       'rgba(0,0,0,0.75)',
+                  marginBottom:'10px',
+                  lineHeight:  1.4,
+                }}>
+                  <span style={{
+                    width:        '6px',
+                    height:       '6px',
+                    borderRadius: '50%',
+                    background:   'rgba(0,0,0,0.5)',
+                    flexShrink:   0,
+                  }}/>
+                  {feat}
+                </li>
+              ))}
+            </ul>
+          </div>
 
-      <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 24px', flex: 1, position: 'relative', zIndex: 1 }}>
-        {plan.features.map((feat) => (
-          <li key={feat} style={{
-            display:     'flex',
-            alignItems:  'flex-start',
-            gap:         '10px',
-            fontFamily:  "'Plus Jakarta Sans', sans-serif",
-            fontSize:    '13px',
-            color:       'rgba(255,255,255,0.7)',
-            marginBottom:'10px',
-            lineHeight:  1.45,
-          }}>
-            {/* Violet check */}
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-              stroke={WEB_ACCENT} strokeWidth="2.5" strokeLinecap="round"
-              style={{ flexShrink: 0, marginTop: '1px' }}>
-              <polyline points="20 6 9 17 4 12"/>
-            </svg>
-            {feat}
-          </li>
-        ))}
-      </ul>
-
-      {/* Value added */}
-      {plan.addedServices && (
-        <div style={{ marginBottom: '28px', position: 'relative', zIndex: 1 }}>
-          <p style={{
-            fontFamily:    "'Plus Jakarta Sans', sans-serif",
-            fontSize:      '12px',
-            fontWeight:    700,
-            color:         WEB_ACCENT,
-            margin:        '0 0 14px',
-            letterSpacing: '0.12em',
-            textTransform: 'uppercase',
-          }}>
-            Also included
-          </p>
-          <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-            {plan.addedServices.map((svc) => (
-              <li key={svc} style={{
-                display:     'flex',
-                alignItems:  'flex-start',
-                gap:         '10px',
-                fontFamily:  "'Plus Jakarta Sans', sans-serif",
-                fontSize:    '13px',
-                color:       'rgba(255,255,255,0.55)',
-                marginBottom:'10px',
-                lineHeight:  1.45,
+          {/* Also included */}
+          {plan.addedServices && (
+            <div>
+              <p style={{
+                fontFamily:    "'Plus Jakarta Sans', sans-serif",
+                fontSize:      '13px',
+                fontWeight:    700,
+                color:         '#000000',
+                margin:        '0 0 12px',
+                letterSpacing: '0.01em',
               }}>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-                  stroke="rgba(167,139,250,0.6)" strokeWidth="2.5" strokeLinecap="round"
-                  style={{ flexShrink: 0, marginTop: '1px' }}>
-                  <polyline points="20 6 9 17 4 12"/>
-                </svg>
-                {svc}
-              </li>
-            ))}
-          </ul>
+                Also included
+              </p>
+              <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+                {plan.addedServices.map((svc) => (
+                  <li key={svc} style={{
+                    display:     'flex',
+                    alignItems:  'center',
+                    gap:         '10px',
+                    fontFamily:  "'Plus Jakarta Sans', sans-serif",
+                    fontSize:    '13px',
+                    color:       'rgba(0,0,0,0.75)',
+                    marginBottom:'10px',
+                    lineHeight:  1.4,
+                  }}>
+                    <span style={{
+                      width:        '6px',
+                      height:       '6px',
+                      borderRadius: '50%',
+                      background:   'rgba(0,0,0,0.5)',
+                      flexShrink:   0,
+                    }}/>
+                    {svc}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
-      )}
 
-      {/* ── Get Started button ── */}
-      <button
-        className="webdev-choose-btn"
-        onMouseEnter={() => setBtnHovered(true)}
-        onMouseLeave={() => setBtnHovered(false)}
-        onClick={onChoose}
-        style={{
-          width:          '100%',
-          padding:        '16px',
-          borderRadius:   '100px',
-          background:     btnHovered
-            ? 'rgba(129,140,248,0.25)'
-            : 'rgba(129,140,248,0.12)',
-          border:         `1px solid ${btnHovered ? 'rgba(129,140,248,0.6)' : 'rgba(129,140,248,0.3)'}`,
-          cursor:         'pointer',
-          fontFamily:     "'Plus Jakarta Sans', sans-serif",
-          fontSize:       '14px',
-          fontWeight:     600,
-          color:          '#ffffff',
-          letterSpacing:  '0.01em',
-          display:        'flex',
-          alignItems:     'center',
-          justifyContent: 'center',
-          gap:            '8px',
-          position:       'relative',
-          zIndex:         1,
-          transition:     'background 0.25s ease, border-color 0.25s ease, transform 0.2s ease',
-        }}
-      >
-        Get Started
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-          stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-          <line x1="7" y1="17" x2="17" y2="7"/>
-          <polyline points="7 7 17 7 17 17"/>
-        </svg>
-      </button>
+        {/* Get Started button */}
+        <button
+          className="plan-choose-btn"
+          onMouseEnter={() => setBtnHovered(true)}
+          onMouseLeave={() => setBtnHovered(false)}
+          onClick={onChoose}
+          style={{
+            alignSelf:      'flex-start',
+            padding:        '14px 28px',
+            borderRadius:   '100px',
+            background:     btnHovered ? '#0a0a0a' : 'rgba(0,0,0,0.75)',
+            border:         'none',
+            cursor:         'pointer',
+            fontFamily:     "'Plus Jakarta Sans', sans-serif",
+            fontSize:       '14px',
+            fontWeight:     600,
+            color:          '#ffffff',
+            letterSpacing:  '0.01em',
+            display:        'flex',
+            alignItems:     'center',
+            gap:            '8px',
+            transition:     'background 0.25s ease, transform 0.2s ease',
+          }}
+        >
+          Get Started
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+            <line x1="7" y1="17" x2="17" y2="7"/>
+            <polyline points="7 7 17 7 17 17"/>
+          </svg>
+        </button>
+      </div>
     </div>
   )
 }

@@ -1,6 +1,5 @@
 // ─── Web3Forms access key ────────────────────────────────────────────────────
-export const WEB3FORMS_ACCESS_KEY = 'b24110b3-93db-4a6c-bbeb-f85e68928d05'
-
+export const WEB3FORMS_ACCESS_KEY = '85a78adc-9d09-4121-ab2f-8191735957c4'
 
 // ─── Plan definitions ─────────────────────────────────────────────────────────
 export const PLANS = [
@@ -80,7 +79,7 @@ export const WEB_PLANS = [
       'Git repository + deployment-ready',
     ],
     addedServices: [
-      '2 rounds of design revisions',
+      '3 rounds of design revisions',
       '30-day post-launch bug support',
       'Basic Lighthouse performance audit',
     ],
@@ -117,7 +116,11 @@ export const PRICING_STYLES = `
     transform: scale(1.02);
   }
 
-  /* Web-dev card choose button */
+  /* Web-dev card — stack vertically on smaller screens */
+  @media (max-width: 768px) {
+    .webdev-card { flex-direction: column !important; gap: 28px !important; padding: 28px 24px !important; }
+    .webdev-card .webdev-divider { display: none !important; }
+  }
   .webdev-choose-btn {
     transition: background 0.25s ease, transform 0.2s ease;
   }

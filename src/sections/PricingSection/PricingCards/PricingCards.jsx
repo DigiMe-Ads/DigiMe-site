@@ -138,7 +138,7 @@ export default function PricingCards() {
                 color:         'rgba(255,255,255,0.35)',
                 marginBottom:  '14px',
               }}>
-                <span style={{ color: '#818cf8' }}>✦</span> Web Development
+                <span style={{ color: '#0f911e' }}>✦</span> Web Development
               </p>
               <h2 style={{
                 fontFamily:    "'Plus Jakarta Sans', sans-serif",
@@ -150,7 +150,7 @@ export default function PricingCards() {
                 margin:        0,
               }}>
                 Web Development{' '}
-                <span style={{ color: '#818cf8', fontStyle: 'italic', fontWeight: 400 }}>
+                <span style={{ color: '#0f911e', fontStyle: 'italic', fontWeight: 400 }}>
                   Packages
                 </span>
               </h2>
@@ -161,8 +161,8 @@ export default function PricingCards() {
               display:      'inline-flex',
               alignItems:   'center',
               gap:          '8px',
-              background:   'rgba(99,102,241,0.07)',
-              border:       '1px solid rgba(129,140,248,0.2)',
+              background:   'rgba(15,145,30,0.07)',
+              border:       '1px solid rgba(59,255,108,0.2)',
               borderRadius: '100px',
               padding:      '8px 16px',
               alignSelf:    'center',
@@ -171,17 +171,17 @@ export default function PricingCards() {
                 width:        '6px',
                 height:       '6px',
                 borderRadius: '50%',
-                background:   '#818cf8',
+                background:   '#0f911e',
               }}/>
               <span style={{
                 fontFamily:    "'Plus Jakarta Sans', sans-serif",
                 fontSize:      '12px',
                 fontWeight:    600,
-                color:         'rgba(129,140,248,0.8)',
+                color:         'rgba(59,255,108,0.8)',
                 letterSpacing: '0.06em',
                 textTransform: 'uppercase',
               }}>
-                More packages coming soon
+                For custom requirements, please contact us.
               </span>
             </div>
           </div>
@@ -200,7 +200,7 @@ export default function PricingCards() {
             }}
           >
             {WEB_PLANS.map((plan, i) => (
-              <div key={plan.name} style={{ width: 'calc(33.333% - 14px)', flexShrink: 0 }}>
+              <div key={plan.name} style={{ width: '100%' }}>
                 <WebDevCard
                   plan={plan}
                   index={i}
