@@ -143,10 +143,28 @@ export const PRICING_STYLES = `
     .webdev-grid    { flex-direction: column !important; align-items: center !important; }
     .webdev-card    { width: 100% !important; max-width: 520px !important; }
   }
+
+  @media (max-width: 992px) {
+  .pricing-grid {
+    gap: 30px !important;
+  }
+  .pricing-card {
+    border-radius: 0 !important;
+    margin-top: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  .pricing-card:first-child {
+    border-radius: 20px 20px 0 0 !important;
+  }
+  .pricing-card:last-child {
+    border-radius: 0 0 20px 20px !important;
+  }
+}
   @media (max-width: 768px) {
     .pricing-inner    { padding-left: 24px !important; padding-right: 24px !important; }
-    .plan-modal-inner { padding: 28px 20px !important; }
-    .plan-modal-grid  { grid-template-columns: 1fr !important; }
+    .plan-modal-inner { padding: 28px 20px !important; gap: 28px !important; }
+    .plan-modal-grid  { grid-template-columns: 1fr !important; gap: 24px !important;}
   }
   @media (max-width: 480px) {
     .pricing-inner       { padding-left: 16px !important; padding-right: 16px !important; }

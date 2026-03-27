@@ -48,11 +48,9 @@ const SERVICES = [
   {
     n:     '03',
     title: 'Search Engine Optimization (SEO)',
-    image: '/images/Services/social-media.jpg',
+    image: '/images/Services/seo.jpg',
     gallery: [
-      '/images/Services/social-media.jpg',
-      '/images/Services/social-media.jpg',
-      '/images/Services/social-media.jpg',
+      '/images/Services/seo.jpg',
     ],
     tags: [
       ['On Page / Off Page SEO', 'Technical SEO'],

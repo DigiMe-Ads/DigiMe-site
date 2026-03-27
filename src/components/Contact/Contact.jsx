@@ -352,7 +352,7 @@ export default function PageFooter() {
             fontFamily:"'Plus Jakarta Sans', sans-serif",
             fontSize:'13px', color:'rgba(0,0,0,0.5)',
           }}>
-            2026 DigiMe Ads, All Rights reserved
+            2026 DigiMe Ads, All Rights Reserved
           </div>
         </div>
       </div>
