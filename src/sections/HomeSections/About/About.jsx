@@ -89,7 +89,7 @@ export default function About() {
           
             
               
-              <img src="/images/Home/collaborating.png" alt="Team"
+              <img src="/images/Home/collaborating.webp" alt="Team"
                    style={{ width:'70%', height:'70%', objectFit:'cover' }} />
            
           

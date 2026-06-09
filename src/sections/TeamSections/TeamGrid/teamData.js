@@ -1,12 +1,12 @@
 // ─── Team members ─────────────────────────────────────────────────────────────
 export const TEAM = [
-  { name: 'Andrew Abinash',      role: 'Director',                          image: '/images/Team/Andrew.png',      tier: 1 },
-  { name: 'Romario De Silva',    role: 'Director',                          image: '/images/Team/Romario.png',     tier: 1 },
-  { name: 'Nalaka Madhushanka',  role: 'Asst. Manager - Digital Marketing', image: '/images/Team/Nalaka.png',      tier: 2 },
-  { name: 'Lakmal Udaya Kumara', role: 'Creative Designer',                 image: '/images/Team/udaya.png',       tier: 3 },
-  { name: 'Thulakshan',          role: 'Video Editor',                      image: '/images/Team/Thulakshan.png',  tier: 3 },
-  { name: 'Sachira Delankawala', role: 'Digital Marketing Executive',       image: '/images/Team/Sachira-1-1.png', tier: 3 },
-  { name: 'Chanka Herath',       role: 'Web Developer',                     image: '/images/Team/Chanka.png',      tier: 3 },
+  { name: 'Andrew Abinash',      role: 'Director',                          image: '/images/Team/Andrew.webp',      tier: 1 },
+  { name: 'Romario De Silva',    role: 'Director',                          image: '/images/Team/Romario.webp',     tier: 1 },
+  { name: 'Nalaka Madhushanka',  role: 'Asst. Manager - Digital Marketing', image: '/images/Team/Nalaka.webp',      tier: 2 },
+  { name: 'Lakmal Udaya Kumara', role: 'Creative Designer',                 image: '/images/Team/udaya.webp',       tier: 3 },
+  { name: 'Thulakshan',          role: 'Video Editor',                      image: '/images/Team/Thulakshan.webp',  tier: 3 },
+  { name: 'Sachira Delankawala', role: 'Digital Marketing Executive',       image: '/images/Team/Sachira-1-1.webp', tier: 3 },
+  { name: 'Chanka Herath',       role: 'Web Developer',                     image: '/images/Team/Chanka.webp',      tier: 3 },
 ]
 
 // ─── SVG canvas centre ────────────────────────────────────────────────────────

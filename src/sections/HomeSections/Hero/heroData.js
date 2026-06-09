@@ -1,17 +1,17 @@
 // ─── Brand logos ─────────────────────────────────────────────────────────────
 export const BRANDS = [
   { name: 'Deli',         logo: '/images/Home/Logos/deli.webp'                 },
-  { name: 'Deltano',      logo: '/images/Home/Logos/DelTano.png'               },
-  { name: 'FIFE',         logo: '/images/Home/Logos/FIFE.png'                  },
-  { name: 'HOG',          logo: '/images/Home/Logos/HOG-white.png'             },
-  { name: 'Lavinia',      logo: '/images/Home/Logos/Lavinia.png'               },
-  { name: 'MAYS',         logo: '/images/Home/Logos/mays.png'                  },
-  { name: 'Nidahas',      logo: '/images/Home/Logos/NIDAHAS.png'               },
-  { name: 'Mirissa',      logo: '/images/Home/Logos/O Mirissa logo final.png'  },
-  { name: 'SONO',         logo: '/images/Home/Logos/SONO.png'                  },
-  { name: 'Square',       logo: '/images/Home/Logos/square_logo.png'           },
+  { name: 'Deltano',      logo: '/images/Home/Logos/DelTano.webp'               },
+  { name: 'FIFE',         logo: '/images/Home/Logos/FIFE.webp'                  },
+  { name: 'HOG',          logo: '/images/Home/Logos/HOG-white.webp'             },
+  { name: 'Lavinia',      logo: '/images/Home/Logos/Lavinia.webp'               },
+  { name: 'MAYS',         logo: '/images/Home/Logos/mays.webp'                  },
+  { name: 'Nidahas',      logo: '/images/Home/Logos/NIDAHAS.webp'               },
+  { name: 'Mirissa',      logo: '/images/Home/Logos/O Mirissa logo final.png' },
+  { name: 'SONO',         logo: '/images/Home/Logos/SONO.webp'                  },
+  { name: 'Square',       logo: '/images/Home/Logos/square_logo.png'              },
   { name: 'Square Space', logo: '/images/Home/Logos/The-Square-Space.webp'     },
-  { name: 'Kickerz',      logo: '/images/Home/Logos/kickerz.png'              },
+  { name: 'Kickerz',      logo: '/images/Home/Logos/kickerz.webp'              },
 ]
 
 // ─── Injected global keyframes + responsive rules ─────────────────────────────

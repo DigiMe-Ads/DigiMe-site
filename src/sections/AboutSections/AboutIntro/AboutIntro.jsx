@@ -7,17 +7,17 @@ const FEATURES = [
   {
     title: 'Data-Led Strategy',
     body:  'Every strategy we build is grounded in real insights, tailored to your business, your audience, and your goals, never guesswork.',
-    icon:  '/images/About/creativity2.png',   
+    icon:  '/images/About/creativity2.webp',   
   },
   {
     title: 'Creative That Works',
     body:  'From strategy to execution, our team of marketers, designers, and developers collaborate to create campaigns that stand out and perform.',
-    icon:  '/images/About/results2.png',   
+    icon:  '/images/About/results2.webp',   
   },
   {
     title: 'Results That Matter',
     body:  'We focus on what actually drives growth, quality leads, meaningful engagement, and revenue that sustains your business long term.',
-    icon:  '/images/About/seo2.png',   
+    icon:  '/images/About/seo2.webp',   
   },
 ]
 

@@ -2,11 +2,11 @@ import { useState, useEffect, useRef } from 'react'
 import { useScrollReveal } from '../../../hooks/useScrollReveal'
 
 const SERVICES = [
-  { title: 'Social Media Management',        icon: '📊', image: "/images/Home/social-media.jpg" },
-  { title: 'Web Development & UI/UX Design', icon: '🛡',  image: "/images/Home/ui2.jpeg" },
-  { title: 'Search Engine Optimization',     icon: '🔎', image: "/images/Home/seo.jpg" },
-  { title: 'Video Production',               icon: '📹', image: "/images/Home/videography.jpg" },
-  { title: 'Photography',                    icon: '📷', image: "/images/Home/photography2.jpg" },
+  { title: 'Social Media Management',        icon: '📊', image: "/images/Home/social-media.webp" },
+  { title: 'Web Development & UI/UX Design', icon: '🛡',  image: "/images/Home/ui2.webp" },
+  { title: 'Search Engine Optimization',     icon: '🔎', image: "/images/Home/seo.webp" },
+  { title: 'Video Production',               icon: '📹', image: "/images/Home/videography.webp" },
+  { title: 'Photography',                    icon: '📷', image: "/images/Home/photography2.webp" },
 ]
 
 const BREAKPOINTS = `

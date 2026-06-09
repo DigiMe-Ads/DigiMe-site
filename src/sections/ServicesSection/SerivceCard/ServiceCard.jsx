@@ -5,24 +5,24 @@ const SERVICES = [
   {
     n:     '01',
     title: 'Social Media Management',
-    image: '/images/Home/Content/Posts/Post 15.jpg',
+    image: '/images/Home/Content/Posts/Post 15.webp',
     gallery: [
-      '/images/Home/Content/Posts/Post 15.jpg',
-      '/images/Home/Content/Posts/Delivery HOG Post.jpg',
-      '/images/Home/Content/Posts/Pickme ad uber.3.jpg',
-      '/images/Home/Content/Posts/Post 16.jpg',
-      '/images/Home/Content/Posts/Post 18.jpg',
-      '/images/Home/Content/Posts/Post 27.jpg',
-      '/images/Home/Content/Posts/Post 29.jpg',
-      '/images/Home/Content/Posts/Post 36.jpg',
-      '/images/Home/Content/Posts/Post 60.jpg',
-      '/images/Home/Content/Posts/Post 61.jpg',
-      '/images/Home/Content/Posts/Post 62.jpg',
-      '/images/Home/Content/Posts/Post 212.jpg',
-      '/images/Home/Content/Posts/Post 233.jpg',
-      '/images/Home/Content/Posts/Post 304.jpg',
-      '/images/Home/Content/Posts/Post 306.jpg',
-      '/images/Home/Content/Posts/Post 318.jpg',
+      '/images/Home/Content/Posts/Post 15.webp',
+      '/images/Home/Content/Posts/Delivery HOG Post.webp',
+      '/images/Home/Content/Posts/Pickme ad uber.3.webp',
+      '/images/Home/Content/Posts/Post 16.webp',
+      '/images/Home/Content/Posts/Post 18.webp',
+      '/images/Home/Content/Posts/Post 27.webp',
+      '/images/Home/Content/Posts/Post 29.webp',
+      '/images/Home/Content/Posts/Post 36.webp',
+      '/images/Home/Content/Posts/Post 60.webp',
+      '/images/Home/Content/Posts/Post 61.webp',
+      '/images/Home/Content/Posts/Post 62.webp',
+      '/images/Home/Content/Posts/Post 212.webp',
+      '/images/Home/Content/Posts/Post 233.webp',
+      '/images/Home/Content/Posts/Post 304.webp',
+      '/images/Home/Content/Posts/Post 306.webp',
+      '/images/Home/Content/Posts/Post 318.webp',
     ],
     tags: [
       ['Content Creation',  'Community Management'],
@@ -34,9 +34,9 @@ const SERVICES = [
   {
     n:     '02',
     title: 'Web Development & UI/UX Design',
-    image: '/images/Home/ui2.jpeg',
+    image: '/images/Home/ui2.webp',
     gallery: [
-      '/images/Home/ui2.jpeg',
+      '/images/Home/ui2.webp',
     ],
     tags: [
       ['Web Development',  'Mobile Apps'],
@@ -48,9 +48,9 @@ const SERVICES = [
   {
     n:     '03',
     title: 'Search Engine Optimization (SEO)',
-    image: '/images/Services/seo.jpg',
+    image: '/images/Services/seo.webp',
     gallery: [
-      '/images/Services/seo.jpg',
+      '/images/Services/seo.webp',
     ],
     tags: [
       ['On Page / Off Page SEO', 'Technical SEO'],
@@ -79,11 +79,11 @@ const SERVICES = [
   {
     n:     '05',
     title: 'Photography',
-    image: '/images/Services/photography.png',
+    image: '/images/Services/photography.webp',
     gallery: [
-      '/images/Home/Projects/nidahas2.png',
-      '/images/Home/Projects/mays2.png',
-      '/images/Home/Projects/mirissa2.png',
+      '/images/Home/Projects/nidahas2.webp',
+      '/images/Home/Projects/mays2.webp',
+      '/images/Home/Projects/mirissa2.webp',
     ],
     tags: [
       ['Social Media Content Shoots', 'Brand Shoots'],
