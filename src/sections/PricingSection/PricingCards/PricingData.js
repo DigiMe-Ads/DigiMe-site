@@ -23,7 +23,7 @@ export const PLANS = [
   },
   {
     name:     'Premium',
-    price:    'LKR 110,000',
+    price:    'LKR 125,000',
     period:   '/month',
     image:    '/images/About/features/digital-platform.png',
     features: [
@@ -41,7 +41,7 @@ export const PLANS = [
   },
   {
     name:     'Professional',
-    price:    'LKR 125,000',
+    price:    'LKR 150,000',
     period:   '/month',
     image:    '/images/About/features/web-design.png',
     features: [

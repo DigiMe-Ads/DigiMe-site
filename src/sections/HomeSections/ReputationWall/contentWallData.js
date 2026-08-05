@@ -10,7 +10,7 @@ export const CARDS = [
   {
     type:    'post',
     image:   '/images/Home/Content/Posts/Delivery HOG Post.webp',
-    caption: 'Product shoot',
+    caption: 'Creative design',
     tag:     'Post',
     likes:   '2.4K',
     col: 0, delay: 0.4,
@@ -25,7 +25,7 @@ export const CARDS = [
   {
     type:    'post',
     image:   '/images/Home/Content/Posts/Pickme ad uber.3.webp',
-    caption: 'Editorial shoot',
+    caption: 'Creative design',
     tag:     'Post',
     likes:   '1.8K',
     col: 1, delay: 0.15,
@@ -34,13 +34,13 @@ export const CARDS = [
     type:    'reel',
     src:     '/images/Home/Content/Reels/Lavinia FInal.mp4',
     poster:  null,
-    caption: 'Social campaign',
+    caption: 'AI video campaign',
     col: 1, delay: 0.5,
   },
   {
     type:    'post',
     image:   '/images/Home/Content/Posts/Post 15.webp',
-    caption: 'Behind the lens',
+    caption: 'Creative design',
     tag:     'Post',
     likes:   '984',
     col: 1, delay: 0.8,
@@ -62,7 +62,7 @@ export const CARDS = [
   {
     type:    'post',
     image:   '/images/Home/Content/Posts/Post 16.webp',
-    caption: 'Campaign',
+    caption: 'Creative design',
     tag:     'Post',
     likes:   '3.1K',
     col: 2, delay: 0.75,
@@ -70,7 +70,7 @@ export const CARDS = [
   {
     type:    'post',
     image:   '/images/Home/Content/Posts/Post 18.webp',
-    caption: 'Street campaign',
+    caption: 'Creative design',
     tag:     'Post',
     likes:   '1.2K',
     col: 3, delay: 0.2,
@@ -79,7 +79,7 @@ export const CARDS = [
     type:    'reel',
     src:     '/images/Home/Content/Reels/reel.mp4',
     poster:  null,
-    caption: 'Brand film',
+    caption: 'Aesthetic reel',
     col: 3, delay: 0.5,
   },
   {

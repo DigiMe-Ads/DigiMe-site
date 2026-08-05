@@ -121,21 +121,22 @@ export default function PricingCard({ plan, index, delay, onChoose }) {
             {plan.name}
           </h3>
 
-          <div style={{ display: 'flex', alignItems: 'baseline', gap: '6px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
             <span style={{
               fontFamily:    "'Plus Jakarta Sans', sans-serif",
-              fontSize:      'clamp(2.4rem, 4vw, 3.2rem)',
+              fontSize:      'clamp(1.8rem, 2.8vw, 2.4rem)',
               fontWeight:    800,
               color:         '#000000',
-              letterSpacing: '-0.03em',
+              letterSpacing: '-0.02em',
               lineHeight:    1,
+              whiteSpace:    'nowrap',
             }}>
               {plan.price}
             </span>
             <span style={{
               fontFamily: "'Plus Jakarta Sans', sans-serif",
-              fontSize:   '14px',
-              fontWeight: 400,
+              fontSize:   '12px',
+              fontWeight: 500,
               color:      'rgba(0,0,0,0.55)',
             }}>
               {plan.period}
