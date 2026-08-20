@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react'
-import * as THREE from 'three'
 import { useScrollReveal } from '../../../hooks/useScrollReveal'
 
 // ── Features config — add icon image paths when ready ──
@@ -25,6 +24,10 @@ const STYLES = `
   @keyframes springFloat {
     0%, 100% { transform: translateY(0px)  rotate(0deg);  }
     50%       { transform: translateY(-14px) rotate(6deg); }
+  }
+  @keyframes abtGeoFloat {
+    0%, 100% { transform: translateY(-50%)          rotate(0deg); }
+    50%       { transform: translateY(calc(-50% - 18px)) rotate(-5deg); }
   }
   @keyframes videoTextFade {
     from { opacity: 0; transform: translateY(10px); }
@@ -52,7 +55,6 @@ const STYLES = `
 `
 
 export default function AboutIntro() {
-  const geoRef      = useRef(null)
   const sectionRef  = useRef(null)
   const headReveal  = useScrollReveal({ threshold: 0.1 })
   const bodyReveal  = useScrollReveal({ threshold: 0.1 })
@@ -68,47 +70,6 @@ export default function AboutIntro() {
     document.head.appendChild(s)
   }, [])
 
-  // ── Three.js dodecahedron — very faint wireframe ──
-  useEffect(() => {
-    const canvas = geoRef.current
-    if (!canvas) return
-    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true })
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-    renderer.setSize(canvas.clientWidth, canvas.clientHeight)
-
-    const scene  = new THREE.Scene()
-    const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100)
-    camera.position.set(0, 0, 5)
-
-    const geo  = new THREE.DodecahedronGeometry(1.6, 0)
-    const mat  = new THREE.MeshBasicMaterial({
-      color:       0xffffff,
-      wireframe:   true,
-      transparent: true,
-      opacity:     0.07,
-    })
-    const mesh = new THREE.Mesh(geo, mat)
-    scene.add(mesh)
-
-    const onResize = () => renderer.setSize(canvas.clientWidth, canvas.clientHeight)
-    window.addEventListener('resize', onResize)
-
-    let raf
-    const animate = () => {
-      raf = requestAnimationFrame(animate)
-      mesh.rotation.y += 0.003
-      mesh.rotation.x += 0.001
-      renderer.render(scene, camera)
-    }
-    animate()
-
-    return () => {
-      cancelAnimationFrame(raf)
-      renderer.dispose()
-      window.removeEventListener('resize', onResize)
-    }
-  }, [])
-
   return (
     <section
       ref={sectionRef}
@@ -121,20 +82,23 @@ export default function AboutIntro() {
       }}
     >
 
-      {/* ── Geo canvas — left side, behind content ── */}
-      <canvas
-        ref={geoRef}
+      {/* ── Floating geo render — left side, behind content ── */}
+      <img
+        src="/images/3d/3d-about-us.png"
+        alt=""
         className="abt-geo"
         aria-hidden="true"
         style={{
           position:      'absolute',
           left:          '-6%',
           top:           '50%',
-          transform:     'translateY(-50%)',
           width:         'clamp(260px, 28vw, 420px)',
           height:        'clamp(260px, 28vw, 420px)',
+          objectFit:     'contain',
+          opacity:       0.15,
           pointerEvents: 'none',
           zIndex:        0,
+          animation:     'abtGeoFloat 8s ease-in-out infinite',
         }}
       />
 

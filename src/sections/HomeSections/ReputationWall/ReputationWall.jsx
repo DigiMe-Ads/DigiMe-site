@@ -1,5 +1,4 @@
 import { useEffect, useRef } from 'react'
-import * as THREE from 'three'
 import { useScrollReveal } from '../../../hooks/useScrollReveal'
 import { CARDS, FLOAT_ANIMS, FLOAT_DURS, CONTENT_WALL_STYLES } from './contentWallData'
 import ReelCard from './ReelCard'
@@ -9,7 +8,6 @@ import StatCard from './StatCard'
 export default function ContentWall() {
   const headReveal = useScrollReveal({ threshold: 0.1 })
   const gridReveal = useScrollReveal({ threshold: 0.04 })
-  const torusRef   = useRef(null)
   const sectionRef = useRef(null)
   const vmRef      = useRef(null)
 
@@ -20,38 +18,6 @@ export default function ContentWall() {
     s.id = 'content-wall-styles'
     s.textContent = CONTENT_WALL_STYLES
     document.head.appendChild(s)
-  }, [])
-
-  // Three.js wireframe torus
-  useEffect(() => {
-    const canvas = torusRef.current
-    if (!canvas) return
-    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true })
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-    renderer.setSize(canvas.clientWidth, canvas.clientHeight)
-    const scene  = new THREE.Scene()
-    const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100)
-    camera.position.set(0, 0, 5)
-    const geo   = new THREE.TorusGeometry(1.35, 0.52, 20, 80)
-    const mat   = new THREE.MeshBasicMaterial({ color: 0x0f911e, wireframe: true, transparent: true, opacity: 0.75 })
-    const torus = new THREE.Mesh(geo, mat)
-    torus.rotation.x = 0.5
-    torus.rotation.z = 0.15
-    scene.add(torus)
-    const onResize = () => renderer.setSize(canvas.clientWidth, canvas.clientHeight)
-    window.addEventListener('resize', onResize)
-    let raf
-    const animate = () => {
-      raf = requestAnimationFrame(animate)
-      torus.rotation.y += 0.005
-      renderer.render(scene, camera)
-    }
-    animate()
-    return () => {
-      cancelAnimationFrame(raf)
-      renderer.dispose()
-      window.removeEventListener('resize', onResize)
-    }
   }, [])
 
   // VIEW MORE parallax on scroll
@@ -136,9 +102,8 @@ export default function ContentWall() {
         <span style={{ color: 'rgba(59,255,108,0.75)' }}>WORK</span>
       </div>
 
-      {/* Torus canvas */}
-      <canvas
-        ref={torusRef}
+      {/* Donut render */}
+      <div
         aria-hidden="true"
         className="wwa-torus"
         style={{
@@ -149,8 +114,31 @@ export default function ContentWall() {
           height:        'clamp(160px, 18vw, 280px)',
           pointerEvents: 'none',
           zIndex:        10,
+          animation:     'wallDonutFloat 6s ease-in-out infinite',
         }}
-      />
+      >
+        {/* Soft glow behind the donut, matching its pink/violet gradient */}
+        <div style={{
+          position:     'absolute',
+          inset:        '10%',
+          borderRadius: '50%',
+          background:   'radial-gradient(ellipse at center, rgba(216,180,254,0.28) 0%, rgba(168,85,247,0.12) 45%, transparent 72%)',
+          filter:       'blur(20px)',
+          zIndex:       0,
+        }} />
+        <img
+          src="/images/3d/view-more-donut.png"
+          alt=""
+          style={{
+            position:  'relative',
+            zIndex:    1,
+            width:     '100%',
+            height:    '100%',
+            objectFit: 'contain',
+            display:   'block',
+          }}
+        />
+      </div>
 
       {/* ── Header ── */}
       <div

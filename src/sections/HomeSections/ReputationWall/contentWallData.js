@@ -108,6 +108,10 @@ export const CONTENT_WALL_STYLES = `
   @keyframes wallFloat2 { 0%,100%{transform:translateY(0px)}  50%{transform:translateY(-5px)}  }
   @keyframes wallFloat3 { 0%,100%{transform:translateY(0px)}  50%{transform:translateY(-9px)}  }
   @keyframes wallGlow   { 0%,100%{opacity:0.4} 50%{opacity:0.8} }
+  @keyframes wallDonutFloat {
+    0%, 100% { transform: translateY(0px)   rotate(0deg); }
+    50%       { transform: translateY(-16px) rotate(4deg); }
+  }
 
   .wall-card {
     cursor: default;

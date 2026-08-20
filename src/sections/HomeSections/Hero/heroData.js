@@ -28,12 +28,24 @@ export const HERO_KEYFRAMES = `
     from { transform: translateX(0); }
     to   { transform: translateX(-50%); }
   }
+
+  /* ── Floating 3D-render objects (hero-top-large / hero-bottom-small) ── */
+  @keyframes obj3dFloatLarge {
+    0%, 100% { transform: translateY(0px)   rotate(0deg); }
+    50%       { transform: translateY(-20px) rotate(5deg); }
+  }
+  @keyframes obj3dFloatSmall {
+    0%, 100% { transform: translateY(0px)  rotate(0deg);  }
+    50%       { transform: translateY(16px) rotate(-5deg); }
+  }
+
   @media (max-width: 1200px) {
     .hero-inner { padding-left: 120px !important; }
   }
   @media (max-width: 992px) {
     .hero-inner { padding-left: 60px !important; }
     .hero-trust-bar { margin-left: -60px !important; }
+    .hero-3d-obj { opacity: 0.4 !important; }
   }
   @media (max-width: 768px) {
     .hero-inner { padding-left: 24px !important; padding-right: 24px !important; }
@@ -42,6 +54,7 @@ export const HERO_KEYFRAMES = `
     .hero-orbit { display: none !important; }
     .hero-trusted-label { min-width: 140px !important; padding: 16px 20px !important; font-size: 13px !important; }
     .hero-label-text { font-size: 13px !important; }
+    .hero-3d-obj { display: none !important; }
   }
   @media (max-width: 480px) {
     .hero-h1 { font-size: 36px !important; line-height: 44px !important; }

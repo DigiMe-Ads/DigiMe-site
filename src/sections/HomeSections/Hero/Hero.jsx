@@ -1,11 +1,9 @@
-import { useEffect, useRef, useState } from 'react'
-import * as THREE from 'three'
+import { useEffect, useState } from 'react'
 import { HERO_KEYFRAMES } from './heroData'
 import OrbitTextSVG  from './OrbitTextSVG'
 import BrandCarousel from './BrandCarousel'
 
 export default function Hero() {
-  const canvasRef = useRef(null)
   const [loaded, setLoaded] = useState(false)
 
   // Inject keyframes once
@@ -17,98 +15,9 @@ export default function Hero() {
     document.head.appendChild(style)
   }, [])
 
-  // ── Three.js blobs ──
   useEffect(() => {
-    const canvas = canvasRef.current
-    if (!canvas) return
-
-    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true })
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-    renderer.setSize(canvas.clientWidth, canvas.clientHeight)
-
-    const scene  = new THREE.Scene()
-    const camera = new THREE.PerspectiveCamera(50, canvas.clientWidth / canvas.clientHeight, 0.1, 100)
-    camera.position.z = 5
-
-    const makeBlob = (x, y, z, scale, speed) => {
-      const geo     = new THREE.BoxGeometry(1, 1, 1, 14, 14, 14)
-      const pos     = geo.attributes.position
-      const orig    = new Float32Array(pos.array.length)
-      const INFLATE = 0.82
-
-      for (let i = 0; i < pos.count; i++) {
-        const vx = pos.getX(i), vy = pos.getY(i), vz = pos.getZ(i)
-        const len = Math.sqrt(vx*vx + vy*vy + vz*vz)
-        const nx = vx + (vx/len - vx) * INFLATE
-        const ny = vy + (vy/len - vy) * INFLATE
-        const nz = vz + (vz/len - vz) * INFLATE
-        pos.setXYZ(i, nx, ny, nz)
-        orig[i*3] = nx; orig[i*3+1] = ny; orig[i*3+2] = nz
-      }
-      pos.needsUpdate = true
-
-      const mesh = new THREE.Mesh(
-        geo,
-        new THREE.MeshBasicMaterial({ color: 0x2a2a2a, wireframe: true })
-      )
-      mesh.position.set(x, y, z)
-      mesh.scale.setScalar(scale)
-      mesh.userData = { speed, phase: Math.random() * Math.PI * 2, origPositions: orig }
-      scene.add(mesh)
-      return mesh
-    }
-
-    const blobs = [
-      makeBlob( 3.2, -0.1,  0,   1.55, 0.32),
-      makeBlob(-3.6, -0.6, -0.5, 1.05, 0.48),
-    ]
-
-    const onResize = () => {
-      camera.aspect = canvas.clientWidth / canvas.clientHeight
-      camera.updateProjectionMatrix()
-      renderer.setSize(canvas.clientWidth, canvas.clientHeight)
-    }
-    window.addEventListener('resize', onResize)
-
-    let raf
-    const clock = new THREE.Clock()
-
-    const animate = () => {
-      raf = requestAnimationFrame(animate)
-      const t = clock.getElapsedTime()
-
-      blobs.forEach(blob => {
-        blob.rotation.x = t * blob.userData.speed * 0.25
-        blob.rotation.y = t * blob.userData.speed * 0.4
-        blob.rotation.z = t * blob.userData.speed * 0.1
-
-        const pos  = blob.geometry.attributes.position
-        const orig = blob.userData.origPositions
-
-        for (let i = 0; i < pos.count; i++) {
-          const ox = orig[i*3], oy = orig[i*3+1], oz = orig[i*3+2]
-          const len   = Math.sqrt(ox*ox + oy*oy + oz*oz)
-          const noise =
-            Math.sin(t*0.5 + ox*2.5 + blob.userData.phase) * 0.5 +
-            Math.cos(t*0.4 + oy*2.0) * 0.5
-          const d = 1 + noise * 0.04
-          pos.setXYZ(i, ox*d, oy*d, oz*d)
-        }
-        pos.needsUpdate = true
-        blob.geometry.computeVertexNormals()
-      })
-
-      renderer.render(scene, camera)
-    }
-
-    animate()
-    setTimeout(() => setLoaded(true), 120)
-
-    return () => {
-      cancelAnimationFrame(raf)
-      renderer.dispose()
-      window.removeEventListener('resize', onResize)
-    }
+    const id = setTimeout(() => setLoaded(true), 120)
+    return () => clearTimeout(id)
   }, [])
 
   const handleReadMore = () => window.scrollBy({ top: window.innerHeight, behavior: 'smooth' })
@@ -131,19 +40,60 @@ export default function Hero() {
         fontFamily: "'Plus Jakarta Sans', sans-serif",
       }}
     >
-      {/* Three.js canvas */}
-      <canvas
-        ref={canvasRef}
+      {/* ── Floating 3D-render objects ── */}
+      {/* Large wireframe object — upper right */}
+      <div
+        className="hero-3d-obj"
         aria-hidden="true"
         style={{
           position:      'absolute',
-          inset:         0,
-          width:         '100%',
-          height:        '100%',
-          pointerEvents: 'none',
+          top:           '6%',
+          right:         '4%',
+          width:         'clamp(240px, 24vw, 420px)',
           zIndex:        0,
+          pointerEvents: 'none',
+          animation:     'obj3dFloatLarge 7s ease-in-out infinite',
         }}
-      />
+      >
+        <img
+          src="/images/3d/hero-top-large.png"
+          alt=""
+          style={{
+            width:  '100%',
+            height: 'auto',
+            display: 'block',
+            opacity: 0.5,
+            filter:  'drop-shadow(0 0 46px rgba(15,145,30,0.22))',
+          }}
+        />
+      </div>
+
+      {/* Small wireframe object — lower, layered behind text edge */}
+      <div
+        className="hero-3d-obj"
+        aria-hidden="true"
+        style={{
+          position:      'absolute',
+          bottom:        '14%',
+          right:         '28%',
+          width:         'clamp(130px, 13vw, 220px)',
+          zIndex:        0,
+          pointerEvents: 'none',
+          animation:     'obj3dFloatSmall 8.5s ease-in-out infinite',
+        }}
+      >
+        <img
+          src="/images/3d/hero-bottom-small.png"
+          alt=""
+          style={{
+            width:  '100%',
+            height: 'auto',
+            display: 'block',
+            opacity: 0.4,
+            filter:  'drop-shadow(0 0 32px rgba(15,145,30,0.2))',
+          }}
+        />
+      </div>
 
       {/* Background glow */}
       <div aria-hidden="true" style={{

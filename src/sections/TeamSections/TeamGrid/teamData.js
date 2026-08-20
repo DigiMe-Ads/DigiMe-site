@@ -5,7 +5,6 @@ export const TEAM = [
   { name: 'Nalaka Madhushanka',  role: 'Asst. Manager - Digital Marketing', image: '/images/Team/Nalaka.webp',      tier: 2 },
   { name: 'Lakmal Udaya Kumara', role: 'Creative Designer',                 image: '/images/Team/udaya.webp',       tier: 3 },
   { name: 'Thulakshan',          role: 'Video Editor',                      image: '/images/Team/Thulakshan.webp',  tier: 3 },
-  { name: 'Sachira Delankawala', role: 'Digital Marketing Executive',       image: '/images/Team/Sachira-1-1.webp', tier: 3 },
   { name: 'Chanka Herath',       role: 'Web Developer',                     image: '/images/Team/Chanka.webp',      tier: 3 },
 ]
 
@@ -22,18 +21,17 @@ export const NODES = [
   { ...TEAM[0], x: CX - 100, y: CY },
   { ...TEAM[1], x: CX + 100, y: CY },
   { ...TEAM[2], x: CX + 260 * Math.cos(-90  * Math.PI / 180), y: CY + 260 * Math.sin(-90  * Math.PI / 180) },
-  { ...TEAM[3], x: CX + 260 * Math.cos(-18  * Math.PI / 180), y: CY + 260 * Math.sin(-18  * Math.PI / 180) },
-  { ...TEAM[4], x: CX + 260 * Math.cos( 54  * Math.PI / 180), y: CY + 260 * Math.sin( 54  * Math.PI / 180) },
-  { ...TEAM[5], x: CX + 260 * Math.cos(126  * Math.PI / 180), y: CY + 260 * Math.sin(126  * Math.PI / 180) },
-  { ...TEAM[6], x: CX + 260 * Math.cos(198  * Math.PI / 180), y: CY + 260 * Math.sin(198  * Math.PI / 180) },
+  { ...TEAM[3], x: CX + 260 * Math.cos(  0  * Math.PI / 180), y: CY + 260 * Math.sin(  0  * Math.PI / 180) },
+  { ...TEAM[4], x: CX + 260 * Math.cos( 90  * Math.PI / 180), y: CY + 260 * Math.sin( 90  * Math.PI / 180) },
+  { ...TEAM[5], x: CX + 260 * Math.cos(180  * Math.PI / 180), y: CY + 260 * Math.sin(180  * Math.PI / 180) },
 ]
 
 // ─── Graph edges ──────────────────────────────────────────────────────────────
 export const EDGES = [
   [0, 1],
-  [0, 2], [0, 3], [0, 4], [0, 5], [0, 6],
-  [1, 2], [1, 3], [1, 4], [1, 5], [1, 6],
-  [2, 3], [3, 4], [4, 5], [5, 6], [6, 2],
+  [0, 2], [0, 3], [0, 4], [0, 5],
+  [1, 2], [1, 3], [1, 4], [1, 5],
+  [2, 3], [3, 4], [4, 5], [5, 2],
 ]
 
 // ─── Node visual constants ────────────────────────────────────────────────────

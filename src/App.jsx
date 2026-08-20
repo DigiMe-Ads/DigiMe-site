@@ -9,10 +9,12 @@ import TeamPage    from './pages/Team/TeamPage'
 import ContactPage from './pages/Contact-us/ContactUsPage'
 import ScrollToTop from './utils/ScrollToTop'
 import PortfolioPage from './pages/Portfolio/PortfolioPage'
+import Preloader    from './components/Preloader/Preloader'
 
 export default function App() {
   return (
     <BrowserRouter>
+    <Preloader />
     <ScrollToTop/>
       <Routes>
         <Route path="/"         element={<HomePage />}     />

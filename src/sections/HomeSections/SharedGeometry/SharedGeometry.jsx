@@ -1,7 +1,10 @@
-import { useEffect, useRef } from 'react'
-import * as THREE from 'three'
+import { useEffect } from 'react'
 
-const BREAKPOINTS = `
+const STYLES = `
+  @keyframes sharedGeoFloat {
+    0%, 100% { transform: translateY(0px)   rotate(0deg); }
+    50%       { transform: translateY(-18px) rotate(5deg); }
+  }
   @media (max-width: 992px) {
     .shared-geo-wrap { width: 220px !important; height: 220px !important; opacity: 0.5 !important; }
   }
@@ -11,93 +14,16 @@ const BREAKPOINTS = `
 `
 
 export default function SharedGeometry() {
-  const canvasRef = useRef(null)
-
   useEffect(() => {
-    if (!document.getElementById('shared-geo-bp')) {
-      const s = document.createElement('style')
-      s.id = 'shared-geo-bp'
-      s.textContent = BREAKPOINTS
-      document.head.appendChild(s)
-    }
-
-    const canvas = canvasRef.current
-    if (!canvas) return
-
-    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true })
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-    renderer.setSize(canvas.clientWidth, canvas.clientHeight)
-
-    const scene  = new THREE.Scene()
-    const camera = new THREE.PerspectiveCamera(45, canvas.clientWidth / canvas.clientHeight, 0.1, 100)
-    camera.position.z = 4.5
-
-    // ── Low-poly icosahedron — subdivision 0 = pure flat triangular faces ──
-    // This matches the sharp gemstone shape in the screenshot exactly
-    const geo = new THREE.IcosahedronGeometry(1.3, 0)
-
-    // Faint filled mesh so faces are barely visible (dark green tint)
-    const fillMat = new THREE.MeshBasicMaterial({
-      color:       0x0d1a0d,
-      transparent: true,
-      opacity:     0.4,
-      side:        THREE.FrontSide,
-    })
-    const fillMesh = new THREE.Mesh(geo, fillMat)
-    scene.add(fillMesh)
-
-    // Sharp bright edge lines — this is the main visual like the screenshot
-    const edgeGeo = new THREE.EdgesGeometry(geo)
-    const edgeMat = new THREE.LineBasicMaterial({
-      color:       0x3a6e3a,   // medium green, matches the lines in image
-      transparent: true,
-      opacity:     0.85,
-    })
-    const edges = new THREE.LineSegments(edgeGeo, edgeMat)
-    scene.add(edges)
-
-    // Second slightly larger icosahedron edges — gives the layered outline look
-    const outerEdgeGeo = new THREE.EdgesGeometry(new THREE.IcosahedronGeometry(1.45, 0))
-    const outerEdgeMat = new THREE.LineBasicMaterial({
-      color:       0x1e3e1e,
-      transparent: true,
-      opacity:     0.3,
-    })
-    scene.add(new THREE.LineSegments(outerEdgeGeo, outerEdgeMat))
-
-    const onResize = () => {
-      camera.aspect = canvas.clientWidth / canvas.clientHeight
-      camera.updateProjectionMatrix()
-      renderer.setSize(canvas.clientWidth, canvas.clientHeight)
-    }
-    window.addEventListener('resize', onResize)
-
-    let raf
-    const clock = new THREE.Clock()
-
-    const animate = () => {
-      raf = requestAnimationFrame(animate)
-      const t = clock.getElapsedTime()
-
-      // Slow gentle rotation — matches the static-ish look in screenshot
-      fillMesh.rotation.y = t * 0.15
-      fillMesh.rotation.x = t * 0.07
-      edges.rotation.y    = t * 0.15
-      edges.rotation.x    = t * 0.07
-
-      renderer.render(scene, camera)
-    }
-    animate()
-
-    return () => {
-      cancelAnimationFrame(raf)
-      renderer.dispose()
-      window.removeEventListener('resize', onResize)
-    }
+    if (document.getElementById('shared-geo-bp')) return
+    const s = document.createElement('style')
+    s.id = 'shared-geo-bp'
+    s.textContent = STYLES
+    document.head.appendChild(s)
   }, [])
 
   return (
-    // Wrapper handles positioning — canvas + glow are siblings inside
+    // Wrapper handles positioning — glow + floating image are siblings inside
     <div
       className="shared-geo-wrap"
       aria-hidden="true"
@@ -124,15 +50,20 @@ export default function SharedGeometry() {
         }}
       />
 
-      {/* ── Three.js canvas on top of glow ── */}
-      <canvas
-        ref={canvasRef}
+      {/* ── Floating hexagon render ── */}
+      <img
+        src="/images/3d/3d-hexagon.png"
+        alt=""
         style={{
-          position: 'absolute',
-          inset:    0,
-          width:    '100%',
-          height:   '100%',
-          zIndex:   1,
+          position:  'absolute',
+          inset:     0,
+          zIndex:    1,
+          width:     '100%',
+          height:    '100%',
+          objectFit: 'contain',
+          opacity:   0.55,
+          filter:    'drop-shadow(0 0 40px rgba(180,200,20,0.2))',
+          animation: 'sharedGeoFloat 7s ease-in-out infinite',
         }}
       />
     </div>
