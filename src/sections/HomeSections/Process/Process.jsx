@@ -198,7 +198,7 @@ function ProcessCard({ step, index }) {
         overflow:       'hidden',
       }}>
         {step.icon ? (
-          <img src={step.icon} alt={step.title} style={{ width: '28px', height: '28px', objectFit: 'contain' }} />
+          <img loading="lazy" decoding="async" src={step.icon} alt={step.title} style={{ width: '28px', height: '28px', objectFit: 'contain' }} />
         ) : (
           ICONS[index]
         )}

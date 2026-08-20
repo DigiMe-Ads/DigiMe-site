@@ -55,7 +55,7 @@ export default function Hero() {
           animation:     'obj3dFloatLarge 7s ease-in-out infinite',
         }}
       >
-        <img
+        <img loading="lazy" decoding="async"
           src="/images/3d/hero-top-large.png"
           alt=""
           style={{
@@ -82,7 +82,7 @@ export default function Hero() {
           animation:     'obj3dFloatSmall 8.5s ease-in-out infinite',
         }}
       >
-        <img
+        <img loading="lazy" decoding="async"
           src="/images/3d/hero-bottom-small.png"
           alt=""
           style={{

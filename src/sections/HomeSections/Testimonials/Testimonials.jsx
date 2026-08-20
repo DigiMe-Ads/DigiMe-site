@@ -162,7 +162,7 @@ export default function Testimonials() {
             transform:    `rotate(${photo.rotate})`,
           }}>
             {photo.image ? (
-              <img
+              <img loading="lazy" decoding="async"
                 src={photo.image}
                 alt=""
                 aria-hidden="true"
@@ -262,7 +262,7 @@ export default function Testimonials() {
               }}
             >
               {r.avatar ? (
-                <img
+                <img loading="lazy" decoding="async"
                   src={r.avatar}
                   alt={r.name}
                   style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}

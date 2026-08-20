@@ -126,7 +126,7 @@ export default function ContentWall() {
           filter:       'blur(20px)',
           zIndex:       0,
         }} />
-        <img
+        <img loading="lazy" decoding="async"
           src="/images/3d/view-more-donut.png"
           alt=""
           style={{

@@ -97,8 +97,6 @@ export const FLOAT_DURS  = [7, 9, 6.5, 8]
 
 // ─── Global styles injected once into <head> ─────────────────────────────────
 export const CONTENT_WALL_STYLES = `
-  @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap');
-
   @keyframes wallCardIn {
     from { opacity: 0; transform: translateY(28px) scale(0.97); }
     to   { opacity: 1; transform: translateY(0)     scale(1);    }

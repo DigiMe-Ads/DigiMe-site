@@ -20,7 +20,7 @@ export default function PhotoCard({ item, onClick }) {
       }}
     >
       {item.image ? (
-        <img
+        <img loading="lazy" decoding="async"
           src={item.image}
           alt={item.title}
           style={{

@@ -349,7 +349,7 @@ export default function Lightbox({ items, startIndex, onClose }) {
                   </svg>
                 </div>
               ) : (
-                <img
+                <img loading="lazy" decoding="async"
                   src={item.image}
                   alt=""
                   style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}

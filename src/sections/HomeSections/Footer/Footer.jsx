@@ -286,7 +286,7 @@ export default function Footer() {
               }}
             >
               {/* Logo */}
-              <img
+              <img loading="lazy" decoding="async"
                 src="/images/Logo.png"
                 alt="DigiMeAds"
                 style={{ height: '80px', width: 'auto', marginBottom: '16px', marginLeft: '-30px' }}
@@ -381,7 +381,7 @@ export default function Footer() {
 
             {/* 3D blob — bottom right corner */}
             <div style={{ position: 'relative', width: '120px', flexShrink: 0, alignSelf: 'flex-end' }}>
-              <img
+              <img loading="lazy" decoding="async"
                 src="/images/awards/fluid-3d.png"
                 alt=""
                 aria-hidden="true"

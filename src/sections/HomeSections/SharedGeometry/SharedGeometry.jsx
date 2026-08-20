@@ -51,7 +51,7 @@ export default function SharedGeometry() {
       />
 
       {/* ── Floating hexagon render ── */}
-      <img
+      <img loading="lazy" decoding="async"
         src="/images/3d/3d-hexagon.png"
         alt=""
         style={{

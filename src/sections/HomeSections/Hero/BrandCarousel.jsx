@@ -117,7 +117,7 @@ export default function BrandCarousel({ fadeUp }) {
               }}
             >
               {brand.logo ? (
-                <img
+                <img loading="lazy" decoding="async"
                   src={brand.logo}
                   alt={brand.name}
                   style={{

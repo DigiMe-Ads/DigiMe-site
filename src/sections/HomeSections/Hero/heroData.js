@@ -7,7 +7,7 @@ export const BRANDS = [
   { name: 'Lavinia',      logo: '/images/Home/Logos/Lavinia.webp'               },
   { name: 'MAYS',         logo: '/images/Home/Logos/mays.webp'                  },
   { name: 'Nidahas',      logo: '/images/Home/Logos/NIDAHAS.webp'               },
-  { name: 'Mirissa',      logo: '/images/Home/Logos/O Mirissa logo final.png' },
+  { name: 'Mirissa',      logo: '/images/Home/Logos/O Mirissa logo final.webp' },
   { name: 'SONO',         logo: '/images/Home/Logos/SONO.webp'                  },
   { name: 'Square',       logo: '/images/Home/Logos/square_logo.png'              },
   { name: 'Square Space', logo: '/images/Home/Logos/The-Square-Space.webp'     },

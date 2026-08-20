@@ -15,8 +15,6 @@ const SERVICES_RIGHT = [
 ]
 
 const KEYFRAMES = `
-  @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
-
   @keyframes wwaTiltFloat1 {
     0%, 100% { transform: rotate(-6deg) translateY(0px);  }
     50%       { transform: rotate(-8deg) translateY(-6px); }
@@ -173,7 +171,7 @@ export default function WhoWeAre() {
           filter:       'blur(20px)',
           zIndex:       0,
         }} />
-        <img
+        <img loading="lazy" decoding="async"
           src="/images/3d/view-more-donut.png"
           alt=""
           style={{
@@ -318,7 +316,7 @@ export default function WhoWeAre() {
                   boxShadow:    '0 20px 60px rgba(0,0,0,0.6)',
                   border:       '2px solid rgba(59,180,255,0.55)',
                 }}>
-                  <img
+                  <img loading="lazy" decoding="async"
                     src="/images/Home/who-we-are.jpg"
                     alt="Our team"
                     style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}

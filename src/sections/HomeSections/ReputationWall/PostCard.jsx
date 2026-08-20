@@ -18,7 +18,7 @@ export default function PostCard({ card }) {
       }}
     >
       {card.image ? (
-        <img
+        <img loading="lazy" decoding="async"
           src={card.image}
           alt={card.caption}
           style={{

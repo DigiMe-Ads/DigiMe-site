@@ -151,7 +151,7 @@ export default function CinematicShowcase() {
           }}
         >
           {p.bg ? (
-            <img src={p.bg} alt="" style={{
+            <img loading="lazy" decoding="async" src={p.bg} alt="" style={{
               width: '100%', height: '100%', objectFit: 'cover',
               transform: i === active ? 'scale(1.04)' : 'scale(1.08)',
               transition: 'transform 5s ease',

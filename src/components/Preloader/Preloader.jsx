@@ -15,13 +15,13 @@ const STYLES = `
     100% { transform: translateX(100%);  }
   }
   .preloader-overlay {
-    transition: transform 1s cubic-bezier(0.76, 0, 0.24, 1);
+    transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
   }
   .preloader-overlay.preloader-exit {
     transform: translateY(-100%);
   }
   .preloader-logo {
-    transition: transform 0.9s cubic-bezier(0.16,1,0.3,1), opacity 0.7s ease;
+    transition: transform 0.45s cubic-bezier(0.16,1,0.3,1), opacity 0.35s ease;
   }
   .preloader-exit .preloader-logo {
     transform: scale(1.06);
@@ -30,7 +30,7 @@ const STYLES = `
   .preloader-exit .preloader-welcome,
   .preloader-exit .preloader-bar {
     opacity: 0;
-    transition: opacity 0.4s ease;
+    transition: opacity 0.25s ease;
   }
   @media (max-width: 600px) {
     .preloader-welcome { font-size: 11px !important; letter-spacing: 0.28em !important; }
@@ -55,7 +55,7 @@ export default function Preloader() {
   useEffect(() => {
     document.body.style.overflow = 'hidden'
 
-    const MIN_VISIBLE_MS = 1400
+    const MIN_VISIBLE_MS = 500
     const start = Date.now()
     let settled = false
 
@@ -72,7 +72,7 @@ export default function Preloader() {
       window.addEventListener('load', finish)
     }
     // Safety net in case 'load' never fires cleanly
-    const fallback = setTimeout(finish, 4500)
+    const fallback = setTimeout(finish, 2500)
 
     return () => {
       window.removeEventListener('load', finish)
@@ -84,7 +84,7 @@ export default function Preloader() {
   useEffect(() => {
     if (!exiting) return
     document.body.style.overflow = ''
-    const t = setTimeout(() => setHidden(true), 1050)
+    const t = setTimeout(() => setHidden(true), 550)
     return () => clearTimeout(t)
   }, [exiting])
 
@@ -127,7 +127,7 @@ export default function Preloader() {
         textTransform:  'uppercase',
         color:          'rgba(255,255,255,0.5)',
         marginBottom:   '18px',
-        animation:      'preloaderFadeUp 0.7s cubic-bezier(0.16,1,0.3,1) 0.1s both',
+        animation:      'preloaderFadeUp 0.4s cubic-bezier(0.16,1,0.3,1) both',
       }}>
         Welcome to
       </p>
@@ -135,13 +135,14 @@ export default function Preloader() {
       <img
         src="/images/Logo.png"
         alt="DigiMeAds"
+        fetchPriority="high"
         className="preloader-logo"
         style={{
           position: 'relative',
           width:    'clamp(220px, 30vw, 420px)',
           height:   'auto',
           display:  'block',
-          animation: 'preloaderFadeUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.25s both',
+          animation: 'preloaderFadeUp 0.4s cubic-bezier(0.16,1,0.3,1) 0.08s both',
         }}
       />
 
@@ -154,7 +155,7 @@ export default function Preloader() {
         borderRadius: '2px',
         background:   'rgba(255,255,255,0.08)',
         overflow:     'hidden',
-        animation:    'preloaderFadeUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.4s both',
+        animation:    'preloaderFadeUp 0.4s cubic-bezier(0.16,1,0.3,1) 0.16s both',
       }}>
         <div style={{
           position:   'absolute',

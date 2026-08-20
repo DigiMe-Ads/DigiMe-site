@@ -206,7 +206,7 @@ export default function WebDevCard({ plan, index, onChoose }) {
             }}
           >
             {plan.image
-              ? <img src={plan.image} alt={plan.name} style={{ width: '100%', height: '100%', objectFit: 'contain' }}/>
+              ? <img loading="lazy" decoding="async" src={plan.image} alt={plan.name} style={{ width: '100%', height: '100%', objectFit: 'contain' }}/>
               : <CircuitSVG />
             }
           </div>

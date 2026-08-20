@@ -420,7 +420,7 @@ function Lightbox({ service, startIndex, onClose }) {
                 <source src={src} type="video/mp4" />
               </video>
             ) : (
-              <img
+              <img loading="lazy" decoding="async"
                 src={src}
                 alt={`${service.title} ${index + 1}`}
                 style={{
@@ -508,7 +508,7 @@ function Lightbox({ service, startIndex, onClose }) {
                     </svg>
                   </div>
                 ) : (
-                  <img
+                  <img loading="lazy" decoding="async"
                     src={thumb}
                     alt=""
                     style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
@@ -602,7 +602,7 @@ export default function ServicesSection() {
                   animation:     'blobRotate 18s linear infinite',
                   filter:        'blur(2px)',
                 }}>
-                  <img
+                  <img loading="lazy" decoding="async"
                     src="/images/Services/blob.png"
                     alt=""
                     style={{ width: '100%', height: '100%', objectFit: 'contain', opacity: 1 }}
@@ -694,7 +694,7 @@ export default function ServicesSection() {
                           <source src={current.image} type="video/mp4" />
                         </video>
                       ) : (
-                        <img
+                        <img loading="lazy" decoding="async"
                           src={current.image}
                           alt={current.title}
                           style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}

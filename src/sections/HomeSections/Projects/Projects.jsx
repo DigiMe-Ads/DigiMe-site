@@ -209,7 +209,7 @@ export default function Projects() {
                   pointerEvents: 'none',
                   zIndex:        0,
                 }} />
-                <img
+                <img loading="lazy" decoding="async"
                   src="/images/Home/geo-shape.png"
                   alt=""
                   aria-hidden="true"
@@ -290,7 +290,7 @@ function ProjectCard({ project, revealRef, isVisible, delay, index }) {
         overflow:    'hidden',
       }}>
         {project.image ? (
-          <img
+          <img loading="lazy" decoding="async"
             src={project.image}
             alt={project.name}
             style={{

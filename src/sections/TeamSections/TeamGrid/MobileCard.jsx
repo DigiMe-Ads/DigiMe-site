@@ -24,7 +24,7 @@ export default function MobileCard({ member }) {
       {/* Photo */}
       <div style={{ position: 'relative', aspectRatio: '3/4', overflow: 'hidden', background: '#111' }}>
         {member.image && (
-          <img
+          <img loading="lazy" decoding="async"
             src={member.image}
             alt={member.name}
             style={{

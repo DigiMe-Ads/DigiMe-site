@@ -6,7 +6,7 @@ export default function ProcessAwardsWrapper() {
     <div style={{ position: 'relative', background: '#0a0a0a', overflow: 'hidden' }}>
 
       {/* Yellow streak image */}
-      <img
+      <img loading="lazy" decoding="async"
         src="/images/Home/yellow-streak.png"
         alt=""
         aria-hidden="true"
@@ -59,7 +59,7 @@ export default function ProcessAwardsWrapper() {
         zIndex:        1,
         opacity:       0.5,
       }}>
-        <img
+        <img loading="lazy" decoding="async"
           src="/images/Home/geometry2.png"
           alt=""
           aria-hidden="true"

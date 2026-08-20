@@ -308,7 +308,7 @@ function ServiceCard({ service }) {
               <source src={service.image} type="video/mp4" />
             </video>
           ) : service.image ? (
-            <img
+            <img loading="lazy" decoding="async"
               src={service.image}
               alt={service.title}
               style={{

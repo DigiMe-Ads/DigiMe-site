@@ -283,7 +283,7 @@ function FeatureCard({ feat, index }) {
           }}
         >
           {feat.image ? (
-            <img
+            <img loading="lazy" decoding="async"
               src={feat.image}
               alt={feat.title}
               style={{

@@ -83,7 +83,7 @@ export default function AboutIntro() {
     >
 
       {/* ── Floating geo render — left side, behind content ── */}
-      <img
+      <img loading="lazy" decoding="async"
         src="/images/3d/3d-about-us.png"
         alt=""
         className="abt-geo"
@@ -116,7 +116,7 @@ export default function AboutIntro() {
           animation:     'springFloat 9s ease-in-out infinite',
         }}
       >
-        <img
+        <img loading="lazy" decoding="async"
           src="/images/About/spring.png"
           alt=""
           style={{ width: '100%', height: 'auto', display: 'block' }}
@@ -295,7 +295,7 @@ function FeatureCell({ feat, index, last }) {
         ...(hovered ? { background: 'rgba(59,255,108,0.14)' } : {}),
       }}>
         {feat.icon ? (
-          <img
+          <img loading="lazy" decoding="async"
             src={feat.icon}
             alt={feat.title}
             style={{ width: '24px', height: '24px', objectFit: 'contain' }}

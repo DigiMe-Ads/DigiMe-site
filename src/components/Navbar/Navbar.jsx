@@ -121,15 +121,6 @@ export default function Navbar() {
   }, [menuOpen])
 
   useEffect(() => {
-    if (document.getElementById('plus-jakarta-font')) return
-    const link = document.createElement('link')
-    link.id    = 'plus-jakarta-font'
-    link.rel   = 'stylesheet'
-    link.href  = 'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap'
-    document.head.appendChild(link)
-  }, [])
-
-  useEffect(() => {
     if (document.getElementById('navbar-menu-styles')) return
     const s = document.createElement('style')
     s.id = 'navbar-menu-styles'

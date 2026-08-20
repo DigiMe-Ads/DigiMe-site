@@ -184,7 +184,7 @@ export default function Awards() {
                 pointerEvents: 'none',
                 zIndex:        0,
               }} />
-              <img
+              <img loading="lazy" decoding="async"
                 src="/images/Home/awards-object.png"
                 alt=""
                 aria-hidden="true"
@@ -285,7 +285,7 @@ function AwardCard({ award }) {
 
         {/* Background image */}
         {award.bgImage && (
-          <img
+          <img loading="lazy" decoding="async"
             src={award.bgImage}
             alt=""
             aria-hidden="true"
@@ -326,7 +326,7 @@ function AwardCard({ award }) {
           {/* Logo image or org name */}
           <div style={{ marginBottom: '10px' }}>
             {award.logo ? (
-              <img
+              <img loading="lazy" decoding="async"
                 src={award.logo}
                 alt={award.org}
                 style={{
@@ -376,7 +376,7 @@ function AwardCard({ award }) {
 
         {/* Large watermark — bgImage as bottom-right faded overlay */}
         {award.bgImage && (
-          <img
+          <img loading="lazy" decoding="async"
             src={award.bgImage}
             alt=""
             aria-hidden="true"
